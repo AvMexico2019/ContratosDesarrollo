@@ -3,10 +3,10 @@ Reseña del Proyecto de Contratos
 a) Sistema Actual
 
     El sistema se recibió al 100% y se especifico que solo requeria atención de mantenimiento.
-    No se recició documentación.
+    No se recibió documentación.
     No se recibieron requerimientos.
     Se presentaros fallos que ya habian sido atendidos.
-    La forma de corregir los errores de los usuarios es modificar directamenta la base de datos.
+    Los errores de los usuarios se atienden modificando directamenta la base de datos de producción.
     Es un sistema difícil de probar.
     El usuario se queja de que el sistema pierde folios, al parecer no pierde información.
     Contiene información con grados distintos de confiabilidad, la información histórica almacenada no contiene los
@@ -16,7 +16,7 @@ a) Sistema Actual
 b) Áreas de oportunidad
 
     Corregir la administración de folios.
-    Corregir el reporte total para que no genere folios repetidos.
+    Corregir el reporte total para que no presente folios repetidos.
     Ordenar la arquitectura de capas.
     Ordenar el acceso a la base de datos.
     Uniformizar el uso del EntityFramework.
@@ -26,19 +26,19 @@ b) Áreas de oportunidad
 
 c) Qué se hizo
     
-    Se analizó el sistema 
+    Se analizó el sistema.
     Se realizaron todas las modificaciones que no requerian que se modificara la estructura del sistema (Producción).
-    Se avanzó la programación de los cuesstionarios (Desarrollo).
-    Se modifico la forma de generar el reporte total para no repetir folios, no se pudo probar (Producción),
+    Se avanzó la programación de los cuestionarios (Desarrollo).
+    Se modifico la forma de generar el reporte total para no repetir folios, no se pudo probar (Desarrollo),
     el código se encuentra en el proyecto tmpcc en el Team Fondation Server, este proyecto fue dañado por un virus y se
-    pudo hacer que funcionara después del ataque, es necesario verificar los códigos fuente mas recientes para identificar las codificaciones,
-    así mismo hay un store procedure que debe ser modificado y debe estaar en este proyecto.
-    Se modifico la forma de emitir sellos digitales.
+    pudo reparar después del ataque, es necesario verificar los códigos fuente mas recientes para identificar las codificaciones,
+    así mismo hay un store procedure que debe ser modificado y está en este proyecto.
+    Se modificó la forma de emitir sellos digitales.
 
 d) Qué no se hizo
     
     No se alcanzó a terminar la corrección dentro de las actividades de mantenimiento de las deficiencias del sistema que se
-    reportan como área de oportunidad.
+    reportan como ¨"Áreas de oportunidad".
     No se terminó la emisión de opinión
 
 E) Pendientes por hacer
@@ -56,5 +56,4 @@ E) Pendientes por hacer
     Evaluar si las áreas de oportunidad son suficientes para que el sistema opere adecuadamente.
 
 Febrero 2020
-Raymundo Pralta
 
