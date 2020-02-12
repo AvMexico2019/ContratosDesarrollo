@@ -1,0 +1,362 @@
+﻿USE [ArrendamientoInmueble]
+GO
+
+/****** Object:  StoredProcedure [SandBox].[InicializaSandBox]    Script Date: 21/01/2020 04:44:51 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+-- =============================================
+-- Author:		Desa21-Raymundo Peralta
+-- Create date: 13 dic 2019
+-- Description:	Inicializa las tablas en el schema sandbox necesarias para configurar los cuestionarios de la app
+--              Se llama dese la aplicación de escritorio ConfiguraciónRespuestas
+--              El SandBox debe estar creado y el owner debe ser UserDesaAplica
+--              Es necesario tener cuidado con los constraints para que funcione la configuración.
+-- =============================================
+CREATE PROCEDURE [SandBox].[InicializaSandBox]
+AS
+BEGIN
+IF EXISTS (
+	SELECT  schema_name
+		FROM    information_schema.schemata
+		WHERE   schema_name = 'SandBox' )
+begin 
+	begin try
+		begin tran
+			SET ANSI_NULLS ON;
+			SET QUOTED_IDENTIFIER ON;
+
+			IF (EXISTS (SELECT *
+					FROM INFORMATION_SCHEMA.TABLES
+					WHERE TABLE_SCHEMA = 'SandBox'
+					AND TABLE_NAME = 'Rel_ConceptoRespValor'))
+			BEGIN
+				drop table [SandBox].[Rel_ConceptoRespValor];
+			END;
+
+			IF (EXISTS (SELECT *
+					FROM INFORMATION_SCHEMA.TABLES
+					WHERE TABLE_SCHEMA = 'SandBox'
+					AND TABLE_NAME = 'Cat_Tema'))
+			BEGIN
+				drop table [SandBox].[Cat_Tema];
+			END;
+
+			CREATE TABLE [SandBox].[Cat_Tema](
+				[IdTema] [tinyint] IDENTITY(1,1) NOT NULL,
+				[DescripcionTema] [varchar](150) NOT NULL,
+				[EstatusRegistro] [bit] NOT NULL,
+				[FechaRegistro] [datetime] NOT NULL,
+				[Fk_IdUsuarioRegistro] [int] NOT NULL,
+				CONSTRAINT [SB_PK_Cat_Tema] PRIMARY KEY CLUSTERED 
+			(
+				[IdTema] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY];
+
+			set IDENTITY_INSERT ArrendamientoInmueble.SandBox.Cat_Tema ON;
+			insert into [SandBox].[Cat_Tema] (IdTema, DescripcionTema,EstatusRegistro,FechaRegistro,Fk_IdUsuarioRegistro)
+			select IdTema, DescripcionTema,EstatusRegistro,FechaRegistro,Fk_IdUsuarioRegistro from [dbo].[Cat_Tema];
+			set IDENTITY_INSERT ArrendamientoInmueble.SandBox.Cat_Tema OFF;
+
+			IF (EXISTS (SELECT *
+					FROM INFORMATION_SCHEMA.TABLES
+					WHERE TABLE_SCHEMA = 'SandBox'
+					AND TABLE_NAME = 'Concepto'))
+			BEGIN
+				drop table [SandBox].[Concepto];
+			END;
+
+			CREATE TABLE [SandBox].[Concepto](
+				[IdConcepto] [int] IDENTITY(1,1) NOT NULL,
+				[DescripcionConcepto] [varchar](500) NOT NULL,
+				[DescripcionAlternaConcepto] [varchar](500) NULL,
+				[FundamentoLegal] [varchar](max) NULL,
+				[Observaciones] [varchar](300) NULL,
+				[EstatusRegistro] [bit] NOT NULL,
+				[FechaRegistro] [datetime] NOT NULL,
+				[Fk_IdUsuarioRegistro] [int] NOT NULL,
+				CONSTRAINT [SB_PK_Concepto] PRIMARY KEY CLUSTERED 
+			(
+				[IdConcepto] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
+
+			set IDENTITY_INSERT ArrendamientoInmueble.SandBox.Concepto ON
+			insert into [SandBox].[Concepto] (IdConcepto, DescripcionConcepto,DescripcionAlternaConcepto,
+			FundamentoLegal,Observaciones, EstatusRegistro,FechaRegistro,Fk_IdUsuarioRegistro)
+			select IdConcepto, DescripcionConcepto,DescripcionAlternaConcepto,
+			FundamentoLegal,Observaciones, EstatusRegistro,FechaRegistro,Fk_IdUsuarioRegistro from [dbo].[Concepto]
+			set IDENTITY_INSERT ArrendamientoInmueble.SandBox.Concepto OFF
+
+			IF (EXISTS (SELECT *
+					FROM INFORMATION_SCHEMA.TABLES
+					WHERE TABLE_SCHEMA = 'SandBox'
+					AND TABLE_NAME = 'Respuesta'))
+			BEGIN
+				drop table [SandBox].[Respuesta];
+			END;
+
+			CREATE TABLE [SandBox].[Respuesta](
+				[IdRespuesta] [int] IDENTITY(1,1) NOT NULL,
+				[DescripcionRespuesta] [varchar](70) NOT NULL,
+				[Comentario] [varchar](100) NULL,
+				[EstatusRegistro] [bit] NOT NULL,
+				[Fk_IdUsuarioRegistro] [int] NOT NULL,
+				[FechaRegistro] [datetime] NOT NULL,
+				CONSTRAINT [SB_PK_Respuesta] PRIMARY KEY CLUSTERED 
+			(
+				[IdRespuesta] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY];;
+
+			set IDENTITY_INSERT ArrendamientoInmueble.SandBox.Respuesta ON;
+			insert into [SandBox].[Respuesta] (IdRespuesta, DescripcionRespuesta, Comentario, EstatusRegistro, Fk_IdUsuarioRegistro, FechaRegistro)
+			select IdRespuesta, DescripcionRespuesta, Comentario, EstatusRegistro, Fk_IdUsuarioRegistro, FechaRegistro from [dbo].[Respuesta];
+			set IDENTITY_INSERT ArrendamientoInmueble.SandBox.Respuesta OFF;
+
+			CREATE TABLE [SandBox].[Rel_ConceptoRespValor](
+				[IdConceptoRespValor] [int] IDENTITY(1,1) NOT NULL,
+				[Fk_IdInstitucion] [int] NULL,
+				[Fk_IdTema] [tinyint] NOT NULL,
+				[Fk_IdConcepto] [int] NOT NULL,
+				[Fk_IdRespuesta] [int] NOT NULL,
+				[NumOrden] [decimal](5, 2) NOT NULL,
+				[EsDeterminante] [bit] NOT NULL,
+				[ValorRespuesta] [numeric](6, 2) NULL,
+				[ValorMinimo] [decimal](10, 2) NOT NULL,
+				[ValorMaximo] [decimal](10, 2) NOT NULL,
+				[Comentario] [varchar](150) NULL,
+				[EstatusRegistro] [bit] NOT NULL,
+				[Fk_IdUsuarioRegistro] [int] NOT NULL,
+				[FechaRegistro] [datetime] NOT NULL,
+				CONSTRAINT [SB_XPKRel_ConceptoRespValor] PRIMARY KEY CLUSTERED 
+			(
+				[IdConceptoRespValor] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY];
+
+			ALTER TABLE [SandBox].[Rel_ConceptoRespValor]  WITH CHECK ADD  CONSTRAINT [SB_R_84] FOREIGN KEY([Fk_IdConcepto])
+			REFERENCES [SandBox].[Concepto] ([IdConcepto])
+			ALTER TABLE [SandBox].[Rel_ConceptoRespValor] CHECK CONSTRAINT [SB_R_84]
+
+			ALTER TABLE [SandBox].[Rel_ConceptoRespValor]  WITH CHECK ADD  CONSTRAINT [SB_R_128] FOREIGN KEY([Fk_IdTema])
+			REFERENCES [SandBox].[Cat_Tema] ([IdTema])
+			ALTER TABLE [SandBox].[Rel_ConceptoRespValor] CHECK CONSTRAINT [SB_R_128]
+
+			ALTER TABLE [SandBox].[Rel_ConceptoRespValor]  WITH CHECK ADD  CONSTRAINT [SB_R_127] FOREIGN KEY([Fk_IdRespuesta])
+			REFERENCES [SandBox].[Respuesta] ([IdRespuesta])
+			ALTER TABLE [SandBox].[Rel_ConceptoRespValor] CHECK CONSTRAINT [SB_R_127]
+
+			set IDENTITY_INSERT ArrendamientoInmueble.SandBox.Rel_ConceptoRespValor ON;
+			insert into [SandBox].[Rel_ConceptoRespValor] (
+				IdConceptoRespValor, Fk_IdInstitucion, Fk_IdTema, Fk_IdConcepto, Fk_IdRespuesta, NumOrden,
+				EsDeterminante, ValorRespuesta, ValorMinimo, ValorMaximo, Comentario, EstatusRegistro, Fk_IdUsuarioRegistro, FechaRegistro)
+			select IdConceptoRespValor, Fk_IdInstitucion, Fk_IdTema, Fk_IdConcepto, Fk_IdRespuesta, NumOrden,
+				EsDeterminante, ValorRespuesta, ValorMinimo, ValorMaximo, Comentario, EstatusRegistro, Fk_IdUsuarioRegistro, FechaRegistro from [dbo].[Rel_ConceptoRespValor];
+			set IDENTITY_INSERT ArrendamientoInmueble.SandBox.Rel_ConceptoRespValor OFF;
+
+            -- Infraestructura LOG
+
+            if exists (select 1 from sys.triggers where Name =  'SB_TRI_Concepto_D')
+            begin
+                DROP TRIGGER SB_TRI_Concepto_D
+            end
+
+             if exists (select 1 from sys.triggers where Name = 'SB_TRI_Concepto_I')
+            begin
+                DROP TRIGGER SB_TRI_Concepto_I
+            end
+
+            if exists (select 1 from sys.triggers where Name = 'SB_TRI_Concepto_U')
+            begin
+                DROP TRIGGER SB_TRI_Concepto_U
+            end
+
+            if exists (select 1 from sys.triggers where Name = 'SB_TRI_Rel_ConceptoRespValor_D')
+            begin
+                DROP TRIGGER SB_TRI_Rel_ConceptoRespValor_D
+            end
+
+            if exists (select 1 from sys.triggers where Name = 'SB_TRI_Rel_ConceptoRespValor_I')
+            begin
+                DROP TRIGGER SB_TRI_Rel_ConceptoRespValor_I
+            end
+
+            if exists (select 1 from sys.triggers where Name = 'SB_TRI_Rel_ConceptoRespValor_U')
+            begin
+                DROP TRIGGER SB_TRI_Rel_ConceptoRespValor_U
+            end
+
+            IF (EXISTS (SELECT *
+					FROM INFORMATION_SCHEMA.TABLES
+					WHERE TABLE_SCHEMA = 'SandBox'
+					AND TABLE_NAME = 'LogConcepto'))
+			BEGIN
+				drop table [SandBox].[LogConcepto];
+			END;
+
+            IF (EXISTS (SELECT *
+					FROM INFORMATION_SCHEMA.TABLES
+					WHERE TABLE_SCHEMA = 'SandBox'
+					AND TABLE_NAME = 'LogRel_ConceptoRespValor'))
+			BEGIN
+				drop table [SandBox].[LogRel_ConceptoRespValor];
+			END;
+
+            CREATE TABLE    [SandBox].[LogConcepto](
+							[Causa] [varchar](1) NOT NULL,
+	                        [FechaCambio] [DATETIME] NOT NULL,
+	                        [IdConcepto] [int] NOT NULL,
+	                        [DescripcionConcepto] [varchar](500) NOT NULL,
+	                        [DescripcionAlternaConcepto] [varchar](500) NULL,
+	                        [FundamentoLegal] [varchar](max) NULL,
+	                        [Observaciones] [varchar](300) NULL,
+	                        [EstatusRegistro] [bit] NOT NULL,
+	                        [FechaRegistro] [datetime] NOT NULL,
+	                        [Fk_IdUsuarioRegistro] [int] NOT NULL
+             )
+
+             CREATE TABLE   [SandBox].[LogRel_ConceptoRespValor](
+							[Causa] [varchar](1) NOT NULL,
+	                        [FechaCambio] [DATETIME] NOT NULL,
+	                        [IdConceptoRespValor] [INT] NOT NULL,
+	                        [Fk_IdInstitucion] [int] NULL,
+	                        [Fk_IdTema] [tinyint] NOT NULL,
+	                        [Fk_IdConcepto] [int] NOT NULL,
+	                        [Fk_IdRespuesta] [int] NOT NULL,
+	                        [NumOrden] [decimal](5, 2) NOT NULL,
+	                        [EsDeterminante] [bit] NOT NULL,
+	                        [ValorRespuesta] [numeric](6, 2) NULL,
+	                        [ValorMinimo] [decimal](10, 2) NOT NULL,
+	                        [ValorMaximo] [decimal](10, 2) NOT NULL,
+	                        [Comentario] [varchar](150) NULL,
+	                        [EstatusRegistro] [bit] NOT NULL,
+	                        [Fk_IdUsuarioRegistro] [int] NOT NULL,
+	                        [FechaRegistro] [datetime] NOT NULL,
+             )
+
+            declare @Trigger nvarchar(max)
+            
+            set @Trigger = '
+                CREATE TRIGGER [Sandbox].[SB_TRI_Concepto_D] ON [SandBox].[Concepto]
+                FOR DELETE
+                NOT FOR REPLICATION
+                AS
+                BEGIN
+                  IF (EXISTS(SELECT * FROM DELETED))
+                  BEGIN
+	                INSERT INTO [ArrendamientoInmueble].[SandBox].[LogConcepto] 
+		                SELECT ' + CHAR(39) + 'D' + CHAR(39) + ' as Causa, getdate() as FechaCambio, * FROM DELETED
+                  END -- END IF
+                END -- END TRIGGER'
+            EXEC sp_executeSQL @Trigger
+
+            ALTER TABLE [SandBox].[Concepto] ENABLE TRIGGER [SB_TRI_Concepto_D]
+
+            set @Trigger = '
+                CREATE TRIGGER [Sandbox].[SB_TRI_Concepto_I] ON [SandBox].[Concepto]
+                AFTER INSERT
+                NOT FOR REPLICATION
+                AS
+                BEGIN
+                  SET NOCOUNT ON
+                  IF (EXISTS(SELECT * FROM INSERTED))
+                  BEGIN
+	                INSERT INTO [ArrendamientoInmueble].[SandBox].[LogConcepto] 
+		                SELECT ' + CHAR(39) + 'I' + CHAR(39) + ' as Causa, getdate() as FechaCambio, * FROM INSERTED
+                  END -- END IF
+                END -- END TRIGGER'
+            EXEC sp_executeSQL @Trigger
+
+            ALTER TABLE [SandBox].[Concepto] ENABLE TRIGGER [SB_TRI_Concepto_I]
+
+            set @Trigger = '
+                Create TRIGGER [Sandbox].[SB_TRI_Concepto_U] ON [SandBox].[Concepto]
+                FOR UPDATE
+                NOT FOR REPLICATION
+                AS
+                BEGIN
+                  SET NOCOUNT ON
+                  IF (EXISTS(SELECT * FROM INSERTED))
+                  BEGIN
+	                INSERT INTO [ArrendamientoInmueble].[SandBox].[LogConcepto] 
+		                SELECT ' + CHAR(39) + 'U' + CHAR(39) + ' as Causa,  getdate() as FechaCambio, * FROM INSERTED
+                  END -- END IF
+                END -- END TRIGGER'
+            EXEC sp_executeSQL @Trigger
+
+            ALTER TABLE [SandBox].[Concepto] ENABLE TRIGGER [SB_TRI_Concepto_U]
+
+            set @Trigger = '
+                CREATE TRIGGER [Sandbox].[SB_TRI_Rel_ConceptoRespValor_D] ON [SandBox].[Rel_ConceptoRespValor]
+                FOR DELETE
+                NOT FOR REPLICATION
+                AS
+                BEGIN
+                  SET NOCOUNT ON
+                  IF (EXISTS(SELECT * FROM DELETED))
+                  BEGIN
+	                INSERT INTO [ArrendamientoInmueble].[SandBox].[LogRel_ConceptoRespValor] 
+		                SELECT ' + CHAR(39) + 'D' + CHAR(39) + ' as Causa,  getdate() as FechaCambio, * FROM DELETED
+                  END -- END IF
+                END -- END TRIGGER'
+            EXEC sp_executeSQL @Trigger
+
+            ALTER TABLE [SandBox].[Rel_ConceptoRespValor] ENABLE TRIGGER [SB_TRI_Rel_ConceptoRespValor_D]
+
+            
+            set @Trigger =  '
+                CREATE TRIGGER [Sandbox].[SB_TRI_Rel_ConceptoRespValor_I] ON [SandBox].[Rel_ConceptoRespValor]
+                AFTER INSERT
+                NOT FOR REPLICATION
+                AS
+                BEGIN
+                  SET NOCOUNT ON
+                  IF (EXISTS(SELECT * FROM INSERTED))
+                  BEGIN
+	                INSERT INTO [ArrendamientoInmueble].[SandBox].[LogRel_ConceptoRespValor] 
+		                SELECT ' + CHAR(39) + 'I' + CHAR(39) +  ' as Causa,  getdate() as FechaCambio, * FROM INSERTED
+                  END -- END IF
+                END -- END TRIGGER'
+            EXEC sp_executeSQL @Trigger
+
+            ALTER TABLE [SandBox].[Rel_ConceptoRespValor] ENABLE TRIGGER [SB_TRI_Rel_ConceptoRespValor_I]
+
+            
+            set @Trigger = '
+                Create TRIGGER [Sandbox].[SB_TRI_Rel_ConceptoRespValor_U] ON [SandBox].[Rel_ConceptoRespValor]
+                FOR UPDATE
+                NOT FOR REPLICATION
+                AS
+                BEGIN
+                  SET NOCOUNT ON
+                  IF (EXISTS(SELECT * FROM INSERTED))
+                  BEGIN
+	                INSERT INTO [ArrendamientoInmueble].[SandBox].[LogRel_ConceptoRespValor] 
+		                SELECT ' + CHAR(39) + 'U' + CHAR(39) + ' as Causa,  getdate() as FechaCambio, * FROM INSERTED
+                  END -- END IF
+                END -- END TRIGGER'
+            exec sp_executeSQL @Trigger
+
+            ALTER TABLE [SandBox].[Rel_ConceptoRespValor] ENABLE TRIGGER [SB_TRI_Rel_ConceptoRespValor_U]
+
+		commit
+		select 'OK'
+	end try
+	begin catch
+		rollback tran
+		select 'NOK'
+	end catch	
+end			
+END
+
+GO
+
+

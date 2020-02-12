@@ -1,0 +1,92 @@
+﻿
+[Proposito]: Registrar la bitacora de excepciones en eventos que implementen Try-Cath
+--------------------------------------------------------------------------------------------------------
+[Descripcion]: Este dll se consume por una aplicacion que es susceptible de generar excepciones y se implementa en la estructura
+de control de errores TRY-CATCH para escribir.
+Escribe en una tabla llamada [BitacoraExcepcion] la excepcion y si no hay acceso a datos escribe en un archivo atraves del uso de la
+dll Log4net
+---------------------------------------------------------------------------------------------------------
+[Requerimientos para obtener la funcionalidad]:
+Para utilizar la funcionalidad de este proyecto se requiere utilizar el dll generado, en un proyecto para el que se quiera registrar 
+las excepciones, para ello es necesario:
+- Crear una tabla y un sp en la BD para la que se desea atrapar las excepciones, este script se
+encuentra anexado en este proyecto [script Tabla y SP.sql]
+- Crear un archivo en un directorio en el servidor en donde se encuentra la apliacion en IIS
+- En el App.config de este proyecto especificar la ruta en donde esta el archivo para escribir de bitacora
+---------------------------------------------------------------------------------------------------------
+
+[La implementacion en el proyecto que usa la dll]
+Para el uso de la funcionalidad uso en el proyecto cliente destino:
+1) se agrega la referencia del dll: [BitacoraExcepcionesApp.dll]
+2) se hace uso del objeto BitacoraExcepcion en el catch para escribir la excepcion, abajo un ejemplo:
+
+ private void MiFuncionX()
+        {
+            try
+            {
+                SqlConnection cn = new SqlConnection("Data Source=.; Password=pokemon**; User ID=sa; Initial Catalog=AVALUOS");
+                cn.Open();
+                this.LabelInfo.Text = "Conectado";
+
+                throw new Exception("error a deliverado");
+
+            }
+            catch (Exception ex)
+            {
+                this.LabelInfo.Text = ex.Message;
+								
+                //Gurdar el contexto de la Excepcion ocurrida
+                RegistraBitacoraExcepcion(
+                    "Avaluos", 
+                    System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.ToString() + ".aspx",
+                    System.Reflection.MethodBase.GetCurrentMethod().Name + "()", 
+                    ex.Message, 
+                    "userX",
+                    System.Configuration.ConfigurationManager.ConnectionStrings["cnAvaluos"].ConnectionString
+                    );
+               
+
+            }
+			
+		finally
+			{
+				cmd.Dispose();
+				if ( con.State == ConnectionState.Open)
+					con.Close();
+      
+			}
+
+		//Funcion: persistir la informacion de una excepcion.
+        private void RegistraBitacoraExcepcion(String Aplicacion, String Modulo, string Funcion, string  
+                                                DescExcepcion, string Usuario, string CadenaConexion)
+        {
+            //clase referenciada del asembly: BitacoraExcepcionApp.dll
+            //registra en una tabla o archivo informacion acerca de una excepcion
+            BitacoraExcepcion BitacoraExcepcionAvaluos = new BitacoraExcepcion
+            {
+                CadenaconexionBD = CadenaConexion,
+                //valores de contexto  de Excepcion a guardar
+                Aplicacion = Aplicacion,
+                Modulo = Modulo,
+                Funcion = Funcion,
+                DescExcepcion = DescExcepcion,
+                Usr = Usuario
+            };
+
+            //persistir la informacion de la Excepcion
+            BitacoraExcepcionAvaluos.RegistrarBitacoraExcepcion();
+            BitacoraExcepcionAvaluos = null; //desocupar
+          
+        }
+
+
+---------------------------------------------------------------------------------------------------------
+		[La informacion registrada de la expcepcion]:
+		IdBitacoraExepcion	: 1
+		Aplicacion	: Avaluos
+		Modulo	: WebApplication1.WebFormPrueba.aspx
+		Funcion	: Button1_Click()
+		DescExcepcion	: error a deliverado
+		FechaAlta	: 2016-05-19 13:12:12.200
+		Usr: variable de usuario
+---------------------------------------------------------------------------------------------------------			

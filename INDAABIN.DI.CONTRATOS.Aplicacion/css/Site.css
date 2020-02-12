@@ -1,0 +1,1064 @@
+﻿/*Estilos Master Page*/
+
+.page {
+    width: 960px;
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+}
+
+.main {
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+    min-height: 420px;
+    background-image: url('../Imagenes/Fondo_rayado.jpg');
+}
+
+.footer {
+    font-family: 'SoberanaSans';
+    color: #4e5766;
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: normal;
+    font-size: 12px;
+}
+
+/*ESTILOS PARA ETIQUETAS*/
+/*fuentes RVA 23/04/2014
+    ---------------------------------------------------------*/
+
+@font-face {
+    font-family: 'Soberana Titular';
+    src: url('../fonts/SoberanaTitular-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SoberanaSans';
+    src: url('../fonts/SoberanaTitular-Regular.otf') format('opentype');
+}
+
+
+.fuenteTit {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Soberana Titular';
+    text-transform: uppercase;
+}
+
+.fuenteSub {
+    font-family: 'Soberana Titular';
+    font-size: 14pt;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.fuenteEtiqueta {
+    font-family: 'Soberana Titular';
+    font-size: 12px;
+  /*  height: 21px;*/
+}
+
+.fuenteEtiquetaLink {
+    font-family: 'Soberana Titular';
+    font-size: 12px;
+    /*text-transform:uppercase;*/
+    cursor:pointer;
+}
+
+/*Barra de Separación para la master page RVA 28/04/2014*/
+
+.barra {
+    background: #807F83;
+    visibility: visible;
+}
+
+
+/*Fondo institucional rayado */
+.fondo {
+    background: url("../Imagenes/Fondo_rayado.jpg");
+    /*height: 370px;*/
+}
+
+.cssDDL {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    color: black;
+    height: 20px;
+}
+
+/*
+
+/*TextBox*/
+.cssTxtBox {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 13px;
+    color: #004000;
+    /*text-transform:uppercase;*/
+}
+
+tBoxsmall {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 13px;
+    width: 75px;
+    color: #004000;
+    /*text-transform:uppercase;*/
+}
+
+.cssTxtBoxmid {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 13px;
+    width: 250px;
+    color: #004000;
+    /*text-transform:uppercase;*/
+}
+
+.cssTxtBoxbig {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 13px;
+    width: 800px;
+    color: #004000;
+    text-transform: uppercase;
+}
+
+.cssTxtBoxbigdouble {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 50px;
+    width: 800px;
+    color: #004000;
+    text-transform: uppercase;
+}
+
+.cssTxtBoxbigmiddledouble {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 50px;
+    width: 600px;
+    color: #004000;
+    text-transform: uppercase;
+}
+
+/*TextBox ReadOnly*/
+.cssTxtBoxRO {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 13px;
+    width: 150px;
+    color: #585858;
+    background-color: lightgray;
+    margin-left: 5px;
+    text-transform: uppercase;
+}
+
+.cssTxtBoxROsmall {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 13px;
+    width: 75px;
+    color: #004000;
+    text-transform: uppercase;
+}
+
+.cssTxtBoxROmid {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 13px;
+    width: 250px;
+    color: #004000;
+    text-transform: uppercase;
+}
+
+.cssTxtBoxRObig {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 13px;
+    width: 800px;
+    color: #004000;
+    text-transform: uppercase;
+}
+
+.cssTxtBoxRObigdouble {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 50px;
+    width: 800px;
+    color: #004000;
+    text-transform: uppercase;
+}
+
+.cssTxtBoxRObigmiddledouble {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 50px;
+    width: 600px;
+    color: #004000;
+    text-transform: uppercase;
+}
+
+.cssFU {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    height: 19px;
+    color: #004000;
+    text-transform: uppercase;
+}
+/*Botones Verdes*/
+
+.cssButtonsmallest {
+    text-align: center;
+    margin: 5px 0px !important;
+    padding: 5px !important;
+    font-size: 11px !important;
+    font-family: "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    color: #fff;
+    border-width: 3px !important;
+    border-style: double !important;
+    border-color: #72ba99 !important;
+    background: #1d7043 !important;
+    height: 35px;
+    width: 60px;
+}
+
+    .cssButtonsmallest:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: #1B8F5B !important;
+        cursor: pointer;
+    }
+
+.cssButtonsmall {
+    text-align: center;
+    margin: 5px 0px !important;
+    padding: 5px !important;
+    font-size: 11px !important;
+    font-family: "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    color: #fff;
+    border-width: 3px !important;
+    border-style: double !important;
+    border-color: #72ba99 !important;
+    background: #1d7043 !important;
+    height: 35px;
+    width: 120px;
+}
+
+    .cssButtonsmall:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: #1B8F5B !important;
+        cursor: pointer;
+    }
+
+.cssButtonmid {
+    text-align: center;
+    margin: 5px 0px !important;
+    padding: 5px !important;
+    font-size: 11px !important;
+    font-family: "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    color: #fff;
+    border-width: 3px !important;
+    border-style: double !important;
+    border-color: #72ba99 !important;
+    background: #1d7043 !important;
+    height: 35px;
+    width: 170px;
+}
+
+.cssButton {
+    text-align: center;
+    text-anchor:middle;
+    vertical-align:central;
+    margin: 5px 0px !important;
+    padding: 5px !important;
+    font-size: 11px !important;
+    font-family: "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    color: #fff;
+    background: #1d7043 !important;
+    border-left-style: double !important;
+    border-left-color: #72ba99 !important;
+    border-left-width: 3px !important;
+    border-right-style: double !important;
+    border-right-color: #72ba99 !important;
+    border-right-width: 3px !important;
+    border-top-style: double !important;
+    border-top-color: #72ba99 !important;
+    border-top-width: 3px !important;
+    border-bottom-style: double !important;
+    border-bottom-color: #72ba99 !important;
+    border-bottom-width: 3px !important;
+}
+
+    .cssButton:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: #1B8F5B !important;
+        cursor: pointer;
+    }
+
+.cssButtonmid:hover {
+    margin: 5px 0px !important;
+    padding: 5px !important;
+    background: #1B8F5B !important;
+    cursor: pointer;
+}
+
+.cssButtonbig {
+    text-align: center;
+    margin: 5px 0px !important;
+    padding: 5px !important;
+    font-size: 11px !important;
+    font-family: "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    color: #fff;
+    border-width: 3px !important;
+    border-style: double !important;
+    border-color: #72ba99 !important;
+    background: #1d7043 !important;
+    height: 35px;
+    width: 210px;
+}
+
+    .cssButtonbig:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: #1B8F5B !important;
+        cursor: pointer;
+    }
+
+/*Botones Grises letra verde*/
+.cssButtonGRsmallest {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    color: green;
+    background-color: darkgray;
+    text-transform: uppercase;
+    height: 35px;
+    width: 60px;
+}
+
+    .cssButtonGRsmallest:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: darkgray !important;
+        cursor: pointer;
+    }
+
+.cssButtonGR {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    color: green;
+    background-color: darkgray;
+    text-transform: uppercase;
+}
+
+    .cssButtonGR:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: darkgray !important;
+        cursor: pointer;
+    }
+
+.cssButtonGRsmall {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    color: green;
+    background-color: darkgray;
+    text-transform: uppercase;
+    height: 35px;
+    width: 120px;
+}
+
+    .cssButtonGRsmall:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: darkgray !important;
+        cursor: pointer;
+    }
+
+.cssButtonGRsmall {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    color: green;
+    background-color: darkgray;
+    text-transform: uppercase;
+    height: 35px;
+    width: 120px;
+}
+
+    .cssButtonGRsmall:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: darkgray !important;
+        cursor: pointer;
+    }
+
+.cssButtonGRmid {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    color: green;
+    background-color: darkgray;
+    text-transform: uppercase;
+    height: 35px;
+    width: 170px;
+}
+
+    .cssButtonGRmid:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: darkgray !important;
+        cursor: pointer;
+    }
+
+.cssButtonGRbig {
+    font-family: 'SoberanaSans';
+    font-size: 12px;
+    border-color: #E0E0E0;
+    border-style: inset;
+    color: green;
+    background-color: darkgray;
+    text-transform: uppercase;
+    height: 35px;
+    width: 210px;
+}
+
+    .cssButtonGRbig:hover {
+        margin: 5px 0px !important;
+        padding: 5px !important;
+        background: darkgray !important;
+        cursor: pointer;
+    }
+
+
+.GridSearch {
+    border: solid 4px #fff;
+}
+
+    .GridSearch th {
+        border: solid 4px #fff;
+        background-color: rgb(129, 129, 129);
+        color: white;
+        font-size: 14px;
+        font-family: 'Soberana Titular';
+        text-align: center;
+        padding: 5px;
+        font-weight: lighter;
+    }
+
+        .GridSearch th a {
+            font-weight: lighter !important;
+            color: white !important;
+        }
+
+    .GridSearch td {
+        border: solid 4px #fff;
+        padding: 5px;
+        font-size: 12px;
+    }
+
+.SearchRow {
+    display: table;
+    border-bottom: solid 2px #e9e9e9;
+    min-height: 35px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+    .SearchRow input[type='checkbox'] {
+        border-bottom: none;
+    }
+
+
+    .SearchRow input[type='text'] {
+        /*background-color: #fbffd2 !important;*/
+        font-family: 'SoberanaSans';
+        font-size: 12px;
+        border-color: #E0E0E0;
+        border-style: inset;
+        height: 13px;
+        color: #004000;
+    }
+
+
+    .SearchRow select {
+        background-color: #fbffd2 !important;
+    }
+
+/*----------------Menu Provivicional-----------*/
+/*div.MenuProvicional {
+}
+
+    div.MenuProvicional ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    div.MenuProvicional li {
+        float: left;
+    }
+
+    div.MenuProvicional ul li a {
+        display: block;
+        width: 170px;
+        background-color: #FFFFFF;
+        border: medium;
+        border-color: #1d7043;
+        color: #1d7043; /*color de letra/
+    }
+*/
+
+/*----------------Menu Provivicional-----------*/
+
+.cssTable {
+    width: 100%;
+    background-color: white;
+    text-align: center;
+}
+
+.cssGrayRow {
+    background-color: lightgray;
+    text-align: center;
+}
+
+.errorMessage {
+    font-family: 'Soberana Titular';
+    font-size: 12px;
+    text-transform: uppercase;
+    color: red;
+}
+
+
+/*=== Estilo general para el gridView ===*/
+.gridView {
+    margin: 0 auto;
+    font-size: 11px;
+    text-align: center;
+    border: hidden;
+}
+    /*Selecciona las filas pares y las colorea*/
+    .gridView tr:nth-child(even) {
+        background-color: none;
+    }
+    /*Selecciona las filas impares y las colorea*/
+    .gridView tr:nth-child(odd) {
+        background-color: lightgray;
+    }
+    /*Estilo para las casillas del gridView*/
+    .gridView td {
+        padding-left: 3px;
+        padding-right: 3px;
+        border: hidden;
+    }
+
+td {
+    border-radius: 0px 0px 5px 5px;
+    text-align: left;
+}
+
+gridViewPaginacion table {
+    margin: 2px auto;
+}
+
+
+.gridViewHeader th {
+    text-align: center;
+    background-color: #807F83;
+    padding: 5px;
+    border: hidden;
+    color: #fff;
+}
+
+
+/*Color de fondo para la paginación*/
+.gridViewPaginacion td {
+    background-color: #807F83;
+}
+
+/*Centramos la tabla que contiene los enlaces para las paginas*/
+.gridViewPaginacion table {
+    margin: 2px auto;
+}
+
+/*El span representa el enlace a la pagina en la que estamos actualmente*/
+.gridViewPaginacion span {
+    color: #fff;
+}
+
+/*Estilo para UpdatePanel*/
+
+.overlay {
+    position: fixed;
+    z-index: 98;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #EEEEEE;
+    filter: alpha(opacity=85);
+    opacity: 0.5;
+}
+
+.overlayContent {
+    z-index: 99;
+    margin: 250px auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+    .overlayContent img {
+        width: 80px;
+        height: 80px;
+    }
+
+
+/*Seccion de mensajes*/
+body {
+    background-color: #F5F5F5;
+}
+
+body, td, a, textarea, p {
+    font-family: 'Soberana Titular';
+    /*font-family: Arial;*/
+    font-size: 12px;
+}
+
+nfoRow {
+    font-size: 11px;
+    font-style: italic;
+    color: #557EC2;
+    text-align: right;
+}
+
+.userInfoRow {
+    font-size: 11px;
+    font-style: italic;
+    color: #557EC2;
+    text-align: right;
+}
+
+.modalBackground {
+    font-size: 11px;
+    font-style: italic;
+    color: gray;
+    text-align: right;
+    background-color: Gray;
+   }
+
+.confirm-dialog {
+    BACKGROUND: url(img/box.png) no-repeat left top;
+    MARGIN: 0px auto;
+    WIDTH: 10px;
+    PADDING-TOP: 14px;
+    position: absolute;
+}
+
+
+.modalBackgroundnew {
+    background-color: Window;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    background-color: Gray;
+}
+
+
+.sectionHeader {
+    background-color: #D7D7D7;
+    color: #464646;
+    font-weight: bold;
+}
+
+.sectionHeaderODT {
+    font-weight: bolder;
+    text-align: left;
+}
+
+.sectionTitle {
+    background-color: #D7D7D7;
+    color: #464646;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+}
+
+.infoMessageBig {
+    color: #3E61C0;
+    font-weight: bold;
+    font-size: 14;
+}
+
+.infoMessageMBig {
+    color: #3E61C0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.warningMessage {
+    color: #F78A01;
+    font-weight: bold;
+}
+
+.errorMessage {
+    color: #A31515;
+    font-weight: bold;
+}
+
+.errorMessageSmall {
+    color: #A31515;
+    font-size: 10;
+}
+
+.errorMessageBig {
+    color: #A31515;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+a:link, a:visited, a:active {
+    text-decoration: underline;
+    color: #7BBF99;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #464646;
+    background-color: #D7D7D7;
+    font-weight: bolder;
+}
+
+.menuLink:link, .menuLink:visited, .menuLink:active {
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.menuLink:hover {
+    text-decoration: none;
+    color: #000000;
+    background-color: #FFFFFF;
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+.noBorderText {
+    border: 0;
+    color: Black;
+}
+
+.footer {
+    color: #80808C;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* ESTILOS DE MENSAJES */
+
+.Mensaje {
+    font-family: Century Gothic, Tahoma, Arial, Helvetica;
+    font-size: 12px;
+    font-weight: normal;
+    color: black;
+}
+
+.MensajeTitulo {
+    font-family: Century Gothic, Verdana, Tahoma, Arial, Helvetica;
+    font-size: 12px;
+    font-weight: bold;
+    color: Blue;
+    background-color: #000066;
+}
+
+.VentanaEmergente {
+    font-family: Century Gothic, Verdana, Tahoma, Arial, Helvetica;
+    font-size: 12px;
+    color: Blue;
+    background-color: #FFFFFF;
+    border-width: 3px;
+    border-style: solid;
+    border-color: Gray;
+    padding: 3px;
+    -moz-border-radius: 1em; /* Mozilla */
+    -ms-border-radius: 1em; /* Internet Explorer 8 (No soportado)*/
+    -webkit-border-radius: 1em; /* WebKit, Safari  y Chrome*/
+    border-radius: 1em; /* Para cuando se cumplan los estandares.*/
+    behavior: url(border-radius.htc); /*Para compatibilidad de IExplorer9*/
+    /*background-image: url("Imagenes/Fondos/TituloInfoPro1.jpg");*/
+}
+
+.VentanaEmergenteFondo {
+    background-color: #848484;
+    /*background: url(../img/ui-bg_diagonals-thick_20_666666_40x40_1.png);*/
+    filter: alpha(opacity=70);
+    opacity: 0.70;
+}
+
+.Fondo {
+    background-color: #00FF00;
+    background: url(../img/ui-bg_diagonals-thick_20_666666_40x40_1.png);
+    filter: alpha(opacity=80);
+    opacity: 0.80;
+}
+
+.TituloRedondo {
+    font-family: Century Gothic, Verdana, Tahoma, Arial, Helvetica;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    /*background: url(img/Fondo.png);*/
+    background-color: #57165A;
+    height: 10px;
+    vertical-align: baseline;
+    -moz-border-radius: 1em; /* Mozilla */
+    -ms-border-radius: 1em; /* Internet Explorer 8 (No soportado)*/
+    -webkit-border-radius: 1em; /* WebKit, Safari  y Chrome*/
+    border-radius: 1em; /* Para cuando se cumplan los estandares.*/
+    text-shadow: #666666 3px 3px 3px; /*Estandar (No soportado por Explorer 9)*/
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#666666', Direction=135, Strength=4);
+    behavior: url(border-radius.htc); /*Para compatibilidad de IExplorer9*/
+}
+
+.top {
+    /*background-image: url(../Imagenes/centro.png);*/
+    background-color: lightgray;
+    background-repeat: repeat-x;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: White;
+    text-align: center;
+}
+
+.top-d {
+    height: 33px;
+    width: 10px;
+    background-color: lightgray;
+    /*background: url(../Imagenes/der.png);*/
+    background-repeat: no-repeat;
+}
+
+.top-i {
+    height: 33px;
+    width: 10px;
+    /*background: url(../Imagenes/izq.png);*/
+    background-color: lightgray;
+    background-repeat: no-repeat;
+}
+
+.midd {
+    height: 10px;
+    width: 10px;
+    background-color: #FFF;
+    border: thin solid #2CA7A5;
+}
+
+.boldRight {
+    font-weight: bold;
+    text-align: right;
+}
+
+.headerGrid {
+    position: absolute;
+}
+
+
+/*Si*/
+.classSi {
+    border: 0;
+    background: transparent url(../Imagenes/btnSi.png) no-repeat;
+    background-position: center;
+    text-align: center;
+    color: #1D7472;
+    vertical-align: middle;
+    cursor: pointer;
+    height: 26px;
+    width: 124px;
+}
+
+    .classSi:hover {
+        background: transparent url(../Imagenes/btnSi_h.png) no-repeat;
+        background-position: center;
+        text-align: center;
+        color: #000000;
+        vertical-align: middle;
+        cursor: pointer;
+        height: 26px;
+        width: 124px;
+    }
+
+/*Ver*/
+.classVer {
+    border: 0;
+    background: transparent url(../img/btnVer.png) no-repeat;
+    background-position: center;
+    text-align: center;
+    color: #1D7472;
+    vertical-align: middle;
+    cursor: pointer;
+    height: 26px;
+    width: 124px;
+}
+
+    .classVer:hover {
+        background: transparent url(../img/btnVer_h.png) no-repeat;
+        background-position: center;
+        text-align: center;
+        color: #000000;
+        vertical-align: middle;
+        cursor: pointer;
+        height: 26px;
+        width: 124px;
+    }
+
+
+
+/* Alineación Elementos */
+.alingLeft {
+    text-align: left;
+}
+
+.alingRight {
+    text-align: right;
+}
+
+.alingImgAyuda {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Estilo para Ayuda Contextual */
+.BotonAyuda {
+    cursor: pointer;
+}
+
+
+.EncabezadoAyuda {
+    background-color: #465c71;
+    color: #dde4ec;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.TituloAyuda {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.FondoAyuda {
+    border: 1px solid #000000;
+    color: #000000;
+    background-color: #CCCCCC;
+}
+
+.ContenidoAyuda {
+    color: #000000;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* Estilos Ventana Modal Procesando */
+
+.modalBackgroud {
+    background-color: Gray;
+    filter: alpha(opacity=50);
+    opacity: 0.50;
+}
+
+.sectionTitle {
+    background-color: #D7D7D7;
+    color: #464646;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+}
+
+.alingImgAyuda
+{
+    vertical-align: middle;
+    text-align: center;
+}
+
+/*.nav2 {
+    list-style: none;
+    *zoom: 1;
+    background: #818181;
+    margin: 0 auto;
+    list-style: none outside none;
+    margin: 0 auto;
+}
+
+.nav2 a {
+    height: 17px;
+    padding: 11px 13px !important;
+    color: #FFFFFF !important;
+    background-color: #818181;
+    font-size: .9em;
+}
+.nav2 > ul > li a:hover {
+    color: white;
+    background-color: #666;
+}
+
+.nav2 li ul li a {
+    display: block;
+    text-decoration: none;
+    font-size: .9em;
+}*/

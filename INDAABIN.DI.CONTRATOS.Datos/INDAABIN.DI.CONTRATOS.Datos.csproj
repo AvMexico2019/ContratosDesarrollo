@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B5668A7-8BFE-4A8A-9EA7-55A029005D55}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>INDAABIN.DI.CONTRATOS.Datos</RootNamespace>
+    <AssemblyName>INDAABIN.DI.CONTRATOS.Datos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\CodeAnalysis\RuleSetContratos.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AplicacionConcepto.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AreaPrioridad.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BitacoraExcepcion.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BitacoraSistema.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_CampoReporte.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Documento.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Indicador.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_InstitucionContratosDBCATNueva.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_InstitucionContratosHistorico.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Parametro.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Prioridad.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Tabla.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Tema.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_TipoArrendamiento.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_TipoContratacion.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_TipoContrato.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_TipoExcepcionNormativaContrato.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_TipoOcupacion.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_TipoPersonaReferencia.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Concepto.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConceptoAccesibilidad.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContratoArrto.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContratoArrto_Historico.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContratosArrtoRIUF.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContratosModelo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContratosModelo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContratosModelo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContratosModelo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContratosModelo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Convenio_Modificatorio.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatosAdicionalesDireccion.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatosAdicionalesInmueble.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbcatnueva_instituciones.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmisionOpinonContrato.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExcepcionNormativaContratoArrto.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inmueble.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InmuebleArrendamiento.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InmuebleFebreroSinRIUF.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InmuebleNvosSinRIUF.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InmuebleSinRIUF.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JustipreciacionArrto.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JustipreciacionExt.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movimiento.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonaReferencia.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlazasInmueble.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlazasInmueble_20171205.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rel_ConceptoRespValor.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepRFI_RIUF.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Respuesta.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RespuestaConcepto.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RIUF.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelloDigital.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SPLIT_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuInsertInmueble_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuObtenerAcuseCuerpoSAEF_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuObtenerAcuseHeaderSelloSAEF_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuObtenerEmisionOpinion_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuObtenerFundamentoLegalXCptoNumOrden_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuObtenerInmueblesConvenioModificatorio_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuObtenerSMOIfolio_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuPaginandoSelectTabla_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelecInformacionRIUFHabilitaroDeshabilitar_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectAcuseContrato_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectAcuseEmisionOpinionXIdFolio_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectAcuseSMOI_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectConceptosXResponderSMOI_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectConceptosXResponderTema_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectContratoArrto_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectContratosHistoricoXInstitucionEdoMpo_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectEstadoMpoXIdInmuebleArrto_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectExcepcionNormativaContratoArrto_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectInmuebleArrtoXId_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectInmuebles_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectMvtosContratosParaInmueblesArrto_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectMvtosEmisionOpinionParaInmueblesArrto_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectSolicitudesEmisionOpinionEmitidas_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectSolicitudesSMOIEmitidas_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spuSelectTotalSMOIxFolioOpinion_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TraductorRUSP_INST.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TraductorRUSP_Sector.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRADUCTOR_cat.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ActualizarRIUF_Result.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_DWH_CONTRATORIUF.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_DWH_RIUF.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vw_QlikContratoArren.cs">
+      <DependentUpon>ContratosModelo.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ContratosModelo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ContratosModelo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="ContratosModelo.edmx.diagram">
+      <DependentUpon>ContratosModelo.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ContratosModelo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ContratosModelo.Context.cs</LastGenOutput>
+      <DependentUpon>ContratosModelo.edmx</DependentUpon>
+    </Content>
+    <Content Include="ContratosModelo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ContratosModelo.edmx</DependentUpon>
+      <LastGenOutput>ContratosModelo.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

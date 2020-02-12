@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="INDAABIN.DI.CONTRATOS.ModeloNegocios.ContratoArrto">
+    <Position X="15" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>A0EICQCAgQgAEAhIAAAIQAQNIAQAgEAQAkCQASAAGCA=</HashCode>
+      <FileName>ContratoArrto\ContratoArrto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AplicacionConcepto" />
+      <Property Name="JustripreciacionContrato1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="INDAABIN.DI.CONTRATOS.ModeloNegocios.AplicacionConcepto">
+    <Position X="7.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EBAAAQEAEIAAAAAAAAgAAACEBAgAAABEAIAQACAAAAg=</HashCode>
+      <FileName>ConceptoRespuesta(Opinion y SMOI)\AplicacionConcepto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="InmuebleArrto" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="INDAABIN.DI.CONTRATOS.ModeloNegocios.ConceptoOpinion">
+    <Position X="3.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgIAAhAAAoBAQAEAAgBAAIAAAEAAAQAAAAABAAAAg=</HashCode>
+      <FileName>ConceptoRespuesta(Opinion y SMOI)\ConceptoOpinion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AplicacionConcepto" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="INDAABIN.DI.CONTRATOS.ModeloNegocios.InmuebleArrto">
+    <Position X="10.5" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>gAECAwIAAMAADAEgBRABBiKQgEQCEBAABIAMA2kAxIA=</HashCode>
+      <FileName>InmuebleArrto\InmuebleArrto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="INDAABIN.DI.CONTRATOS.ModeloNegocios.AcuseFolio">
+    <Position X="4.75" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAEAQAAACAEkAAIAACBAAAAAAABAAAAAAAQAAAEACA=</HashCode>
+      <FileName>ConceptoRespuesta(Opinion y SMOI)\AcuseFolio.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="InmuebleArrtoEmisionOpinion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="INDAABIN.DI.CONTRATOS.ModeloNegocios.JustripreciacionContrato">
+    <Position X="19" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAEAAAAAQAAAAAAAAIAAABAAIAgAIAAAEQAAAAAAA=</HashCode>
+      <FileName>ContratoArrto\JustripreciacionContrato.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E3BAD6E-ACD5-408B-82C6-43BEE7737BD1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>INDAABIN.DI.CONTRATOS.Negocio</RootNamespace>
+    <AssemblyName>INDAABIN.DI.CONTRATOS.Negocio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\CodeAnalysis\RuleSetContratos.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="INDAABIN.DI.BPM.CorreoElectronico">
+      <HintPath>..\Librerias\INDAABIN.DI.BPM.CorreoElectronico.dll</HintPath>
+    </Reference>
+    <Reference Include="INDAABIN.DI.BUS.Servicio.Contratos">
+      <HintPath>..\Librerias\INDAABIN.DI.BUS.Servicio.Contratos.dll</HintPath>
+    </Reference>
+    <Reference Include="INDAABIN.DI.Cifrado">
+      <HintPath>..\Librerias\INDAABIN.DI.Cifrado.dll</HintPath>
+    </Reference>
+    <Reference Include="INDAABIN.DI.Constantes">
+      <HintPath>..\Librerias\INDAABIN.DI.Constantes.dll</HintPath>
+    </Reference>
+    <Reference Include="INDAABIN.DI.Error">
+      <HintPath>..\Librerias\INDAABIN.DI.Error.dll</HintPath>
+    </Reference>
+    <Reference Include="INDAABIN.DI.ModeloNegocio">
+      <HintPath>..\Librerias\INDAABIN.DI.ModeloNegocio.dll</HintPath>
+    </Reference>
+    <Reference Include="INDAABIN.DI.ParametrosEntrada">
+      <HintPath>..\Librerias\INDAABIN.DI.ParametrosEntrada.dll</HintPath>
+    </Reference>
+    <Reference Include="INDAABIN.DI.ParametrosSalida">
+      <HintPath>..\Librerias\INDAABIN.DI.ParametrosSalida.dll</HintPath>
+    </Reference>
+    <Reference Include="INDAABIN.DI.Utilerias">
+      <HintPath>..\Librerias\INDAABIN.DI.Utilerias.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministradorCatalogos.cs" />
+    <Compile Include="ControladorBUS.cs" />
+    <Compile Include="NegocioJustipreciacionExt.cs" />
+    <Compile Include="NG.cs" />
+    <Compile Include="NGConceptoRespValor.cs" />
+    <Compile Include="NG_Catalogos.cs" />
+    <Compile Include="NG_ContratoArrto.cs" />
+    <Compile Include="NG_Inmueble.cs" />
+    <Compile Include="NG_InmuebleArrto.cs" />
+    <Compile Include="NG_Reportes.cs" />
+    <Compile Include="NG_SAEF.cs" />
+    <Compile Include="ProcesadorParametrosURL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\INDAABIN.DI.CONTRATOS.AccesoDatosNuevo\INDAABIN.DI.CONTRATOS.AccesoDatosNuevo.csproj">
+      <Project>{352e4873-9826-433a-9d83-24beec50ec95}</Project>
+      <Name>INDAABIN.DI.CONTRATOS.AccesoDatosNuevo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\INDAABIN.DI.CONTRATOS.AccesoDatos\INDAABIN.DI.CONTRATOS.AccesoDatos.csproj">
+      <Project>{a9903f91-4ae3-4cb8-bf2c-8c24ee3984ee}</Project>
+      <Name>INDAABIN.DI.CONTRATOS.AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\INDAABIN.DI.CONTRATOS.Datos\INDAABIN.DI.CONTRATOS.Datos.csproj">
+      <Project>{6b5668a7-8bfe-4a8a-9ea7-55a029005d55}</Project>
+      <Name>INDAABIN.DI.CONTRATOS.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\INDAABIN.DI.CONTRATOS.ModeloNegocios\INDAABIN.DI.CONTRATOS.ModeloNegocios.csproj">
+      <Project>{b5a0a206-b979-4ba7-87c8-ba0304dd2312}</Project>
+      <Name>INDAABIN.DI.CONTRATOS.ModeloNegocios</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

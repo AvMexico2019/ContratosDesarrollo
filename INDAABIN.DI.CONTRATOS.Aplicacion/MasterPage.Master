@@ -1,0 +1,164 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="INDAABIN.DI.CONTRATOS.Aplicacion.MasterPage" %>
+
+<!DOCTYPE html>
+<html class=" js svg" lang="es">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de contratos y arrendamientos</title>
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
+    <link href='https://framework-gb.cdn.gob.mx/favicon.ico' rel='shortcut icon'>
+    <link href="css/EstilosEspecificos.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <script src="https://framework-gb.cdn.gob.mx/assets/scripts/jquery-ui-datepicker.js"></script>
+    <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+    <script type="text/javascript">
+        //para deshabilitar la opcion de volver a atras, del navegador, y no vuelva a dar guardar
+        function ValidarSoloLectura(value) {
+            if (value == 'none') {
+                document.getElementById("ulTablaSmoi").children[0].style.display = "none";
+                document.getElementById("ulEmision").children[0].style.display = "none";
+                document.getElementById("ulContratos").children[0].style.display = "none";
+                document.getElementById("ulContratos").children[1].style.display = "none";
+
+                //RCA 03/07/2018
+                document.getElementById("ulSAEF").children[0].style.display = "none";
+            }
+            else {
+                document.getElementById("ulTablaSmoi").children[0].style.display = "";
+                document.getElementById("ulEmision").children[0].style.display = "";
+                document.getElementById("ulContratos").children[0].style.display = "";
+                document.getElementById("ulContratos").children[1].style.display = "";
+
+                //RCA 03/07/2018
+                document.getElementById("ulSAEF").children[0].style.display = "";
+            }
+        }
+
+        function InicializarCalendario() {
+
+            $('.selectorCalendario').datepicker();
+        }
+
+
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body data-no-turbolink="true">
+
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="sm1" runat="server" EnableScriptGlobalization="true" EnablePartialRendering="true" AsyncPostBackTimeout="360000" />
+        <nav class="navbar navbar-inverse sub-navbar navbar-fixed-top">
+            <div class="container" id="ambientContainer">
+                <div id="DivVersion" runat="server" class="navbar-fixed-bottom text-right" style="color: #FFFFFF; font-size: 13px;"></div>
+            </div>
+
+            <div class="container" id="menuContainer">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#subenlaces">
+                        <span class="sr-only">Interruptor de Navegación</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<%=Page.ResolveUrl("~/") %>">INDAABIN</a>
+                </div>
+                <div class="collapse navbar-collapse" id="subenlaces">
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <%-- MENU DE TABLA SMOI --%>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Paso 1: Tabla SMOI <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" id="ulTablaSmoi">
+                                <li><a href="<%= Page.ResolveUrl("~/TablaSMOI/TablaSMOI.aspx")  %>" onclick="window.onbeforeunload = null;">Registrar solicitud</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/TablaSMOI/BusqTablaSMOIEmitidas.aspx") %>">Buscar emitidas</a></li>
+                            </ul>
+                        </li>
+                        <%-- MENU DE emisión de opinión --%>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="Para el registro deberá contar con el folio de registro de la tabla SMOI">Paso 2: Emisión de opinión de arrendamiento <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" id="ulEmision">
+                                <li><a href="<%= Page.ResolveUrl("~/InmuebleArrto/BusqMvtosEmisionOpinionInmuebles.aspx") %>" onclick="window.onbeforeunload = null;">Registrar solicitud</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/EmisionOpinion/BusqOpinion.aspx") %>">Buscar emitidas</a></li>
+                            </ul>
+                        </li>
+
+                        <%--//RCA 03/07/2018--%>
+                        <%--MENU DE SAEF--%>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Paso 3: Accesibilidad<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" id="ulSAEF">
+                                <li><a href="<%= Page.ResolveUrl("~/SAEF/BusqMvtosSAEF.aspx") %>" onclick="window.onbeforeunload = null;">Registrar solicitud</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/SAEF/BusquedaSAEF.aspx") %>">Buscar emitidas</a></li>
+                            </ul>
+                        </li>
+
+                        <%-- MENU DE CONTRATOS --%>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="Para el registro deberá contar con el folio de registro de la tabla SMOI y el folio de registro de la emisión de opinión">Paso 4: Contratos <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" id="ulContratos">
+                                <li><a href="<%= Page.ResolveUrl("~/InmuebleArrto/BusqMvtosContratosInmuebles.aspx") %>" onclick="window.onbeforeunload = null;">Registrar contratos de arrendamiento</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/InmuebleArrto/BusqMvtosOtrasFigurasOcupacion.aspx") %>" onclick="window.onbeforeunload = null;">Registrar contratos para otras figuras de ocupación</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/InmuebleArrto/BusqMvtosConvenioModificatorio.aspx") %>" onclick="window.onbeforeunload = null;">Registrar convenio modificatorio</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/Contrato/BusqContrato.aspx") %>">Buscar registrados</a></li>
+
+                            </ul>
+                        </li>
+                        <%-- MENU DE REPORTES --%>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="<%= Page.ResolveUrl("~/Reportes/ReporteGlobal.aspx") %>" onclick="window.onbeforeunload = null;">Reportes</a></li>
+                            </ul>
+                        </li>
+
+                        <%-- JUSTIPRECIACIONES EXTERNAS --%>
+                        <li class="dropdown" runat="server" id="itemJust" visible="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="<%= Page.ResolveUrl("~/Justipreciacion/ConsultaJustipreciacion.aspx") %>" onclick="window.onbeforeunload = null;">Justipreciaciones externas</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/AdministradorRIUF/AdminRIUF.aspx") %>" onclick="window.onbeforeunload = null;">RIUF</a></li>
+                            </ul>
+                        </li>
+
+                        <%-- MENU DE NORMATIVIDAD Y GUIAS --%>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Normatividad  y guías <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="<%= Page.ResolveUrl("~/GuiasNormativa/DocumentacionEnlaces.aspx?IdTipoDocumento=2") %>" onclick="window.onbeforeunload = null;">Normatividad</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/GuiasNormativa/DocumentacionEnlaces.aspx?IdTipoDocumento=1")%>" onclick="window.onbeforeunload = null;">Guías</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container landing-wrapper">
+            <section class="about-landing" style="margin-bottom: 0px">
+                <div class="row">
+                    <section class="col-md-12">
+                        <br />
+                        <br />
+                        <asp:ContentPlaceHolder ID="cphBody" runat="server">
+                            <asp:Panel ID="PnlGeneral" runat="server" BackColor="White">
+                            </asp:Panel>
+                        </asp:ContentPlaceHolder>
+                    </section>
+                </div>
+            </section>
+            <section class="recent-posts-landing" id="post_video">
+            </section>
+        </div>
+
+        <script>
+            $gmx(document).ready(function () {
+                $('.selectorCalendario').datepicker();
+            });
+        </script>
+    </form>
+</body>
+</html>

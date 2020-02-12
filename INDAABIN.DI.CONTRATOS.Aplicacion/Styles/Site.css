@@ -1,0 +1,630 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+body   
+{
+    background: #b6b7bc;
+    font-size: .80em;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #2E8B57;
+}
+
+a:link, a:visited
+{
+    color: #0033CC;
+    
+}
+
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #034af3;
+}
+
+p
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+}
+
+h1
+{
+    font-size: 1.6em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+h2
+{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3
+{
+    font-size: 1.2em;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.page
+{
+    width: 960px;
+    height: auto;
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+	color: #3366FF;
+	     /*Aplicacion de esquinas redondeadas*/
+           padding: 15px;
+	        border-radius: 20px 20px 20px 20px;
+            border: 1px solid black;
+            box-shadow: 3px 3px 4px 4px gray;
+}
+
+.header
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    background: #2E8B57;
+    /*background: #4b6c9e; azul*/
+    width: 100%;
+}
+
+.header h1
+{
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    color: #f9f9f9;
+    border: none;
+    line-height: 2em;
+    font-size: 2em;
+}
+
+.main
+{
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+    min-height: 460px;
+    min-width: 768px;
+	background-color: #FFFFFF;
+}
+
+.leftCol
+{
+    padding: 6px 0px;
+    margin: 12px 8px 8px 8px;
+    width: 200px;
+    min-height: 200px;
+}
+
+.footer
+{
+    color: #4e5766;
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: normal;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+div.hideSkiplink
+{
+    background-color:silver;
+    width:100%;
+}
+
+div.menu
+{
+    padding: 4px 0px 4px 8px;
+}
+
+div.menu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+    background-color: #465c71;
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div.menu ul li a:hover
+{
+    background-color: #bfcbd6;
+    color: #465c71;
+    text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+    background-color: #465c71;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+}
+
+fieldset label.inline 
+{
+    display: inline;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input.textEntry 
+{
+    border: 1px solid #ccc;
+}
+
+input.passwordEntry 
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+    width: 42%;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.title
+{
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color: White;
+}
+
+.loginDisplay a:link
+{
+    color: white;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: white;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+ /*/////////////////////JulioCS/////*/
+input.btn{
+   color:#36567A;
+   font-family:'verdana',helvetica,sans-serif;
+   font-size:9px;
+   font-weight:bold;
+   background-color:#eeeeee;
+   border:1px solid #36567A;
+   	margin-bottom: 7px;
+	}
+
+#centrado{
+margin: 0px auto; /* aquí está el truco */
+background: #ccc;
+color: #900;
+}
+
+
+ /*////////////////GRID****/
+.mGrid {   
+   
+    font-family: Tahoma;
+	font-size:12pt;
+	font-style: normal; 
+	font-weight: normal; 
+	color: #013869; 
+	text-align: left;
+	text-transform:none;
+    margin-left: 0px;
+}  
+.mGrid td {   
+    padding: 2px;   
+    border: solid 1px #c1c1c1;   
+    color: #696969;   /* color de letra gris oscuro */
+}  
+.mGrid th {   
+    padding: 4px 2px;   
+    color: #fff;   
+    background: #808080 url(grd_head.png) repeat-x top;   /* columna de encabezado color: gris*/
+    border-left: solid 1px #525252;   
+    font-size: 0.9em;   
+}  
+.mGrid .alt { background: #fcfcfc url(grd_alt.png) repeat-x top; }  
+.mGrid .pgr { background: #424242 url(grd_pgr.png) repeat-x top; }  
+.mGrid .pgr table { margin: 5px 0; }  
+.mGrid .pgr td {   
+    border-width: 0;   
+    padding: 0 6px;   
+    border-left: solid 1px #666;   
+    font-weight: bold;   
+    color: #fff;   
+    line-height: 12px;   
+ }     
+.mGrid .pgr a { color: #666; text-decoration: none; }  
+.mGrid .pgr a:hover { color: #000; text-decoration: none; } 
+
+/*****Ricardo R*****/
+
+.title2
+{
+    font-size:large;
+    display: block;
+    float: left;
+    font-family:Arial;
+    text-align:center;
+    font-weight:bold;
+    width: auto;
+    color:#006699;
+}
+
+.HeaderBackStyle
+{
+	font-family:Tahoma;
+	font-size: 16px;
+	font-style: normal; 
+	font-weight: bold; 
+	color:#013869;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.LabelStyleRight
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Tahoma;
+	font-size: 8pt;
+	color: black;
+	text-align:right;
+}
+
+.LabelStyleRightBold
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight:bold;
+	color: black;
+	text-align:right;
+}
+
+.LabelStyleLeft
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Tahoma;
+	font-size: 8pt;
+	color: black;
+	text-align:left;
+}
+
+.LabelStyleLeftBold
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight:bold;
+	color: black;
+	text-align:left;
+}
+
+.LabelStyleCenter
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Tahoma;
+	font-size: 8pt;
+	color: black;
+	text-align:center;
+}
+
+.LabelStyleCenterBold
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight:bold;
+	color: black;
+	text-align:center;
+}
+
+
+
+
+
+.LabelStyleRedRight
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Tahoma;
+	font-size: 8pt;
+	color: #BB0000;
+	text-align:right;
+}
+
+.LabelStyleRedRightBold
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight:bold;
+	color: #BB0000;
+	text-align:right;
+}
+
+.LabelStyleRedCenter
+{
+	padding: 1;
+    font-family: Tahoma;
+	font-size: small;
+	color: #BB0000;
+	text-align:center;
+}
+
+.LabelStyleRedCenterBold
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight:bold;
+	color: #BB0000;
+	text-align:center;
+}
+
+.TextBoxStyle
+{
+	padding: 1;
+}
+
+    border-top: 1px solid #006699;
+    border-left: 1px solid #006699;
+    border-bottom: 1px solid #006699;
+    border-left: lightsteelblue 1px solid;
+	border-bottom: lightsteelblue 1px solid;
+	border-color: #006699; 
+	padding-left: 1; 
+	padding-right: 1;
+    border-right-color: #006699;
+    margin-left: 0px;
+}
+
+
+
+.Gridview
+{
+	
+
+    font-family: Tahoma;
+	font-size:12pt;
+	font-style: normal; 
+	font-weight: normal; 
+	color: #013869;
+	text-align: left;
+	text-transform:none;
+    margin-left: 0px;
+    
+   
+}
+
+
+
+.ButtonStyle
+{
+	border-right: black 1px solid;
+	border-top: black 1px solid;
+	border-left: black 1px solid;
+	border-bottom: black 1px solid;
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-weight:bold;
+	font-family: Arial;
+	font-size: 8pt;
+	color: white;
+	background-color:Navy;
+	width:88px;                       
+    height:24px;                      
+
+}
+
+.marca_de_agua
+{
+	color: silver;
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight:lighter;
+	text-decoration: none
+}
+
+.LinkStyleCenter
+{
+	padding: 1;
+    font-family: Arial;
+	font-size: medium;
+	color: blue;
+	text-align:center;
+}
+
+
+.LinkStyleLeft
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Arial;
+	font-size: 8pt;
+	color: blue;
+	text-align:left;
+}
+
+
+.LinkStyleRight
+{
+	padding-left: 1; 
+	padding-right: 1; 
+	padding-top: 1; 
+	padding-bottom: 1;
+	font-family: Arial;
+	font-size: 8pt;
+	color: blue;
+	text-align:right;
+}
+
+
+.modalBackground {
+	background-color: White;			  		
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+ .Separador
+{
+    color: White;           
+    background-color: #696969;   /* color de letra gris oscuro */;
+    text-align: left;
+    font-weight:bold;
+
+ }
+

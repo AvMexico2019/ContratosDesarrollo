@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SandBoxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cat_DataTypes">
+          <Key>
+            <PropertyRef Name="IdDataType" />
+          </Key>
+          <Property Name="IdDataType" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="AtributoHTML" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Comentario" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cat_Tema">
+          <Key>
+            <PropertyRef Name="IdTema" />
+          </Key>
+          <Property Name="IdTema" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescripcionTema" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EstatusRegistro" Type="bit" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="Fk_IdUsuarioRegistro" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Concepto">
+          <Key>
+            <PropertyRef Name="IdConcepto" />
+          </Key>
+          <Property Name="IdConcepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescripcionConcepto" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="DescripcionAlternaConcepto" Type="varchar" MaxLength="500" />
+          <Property Name="FundamentoLegal" Type="varchar(max)" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="300" />
+          <Property Name="EstatusRegistro" Type="bit" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="Fk_IdUsuarioRegistro" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cuestionarios">
+          <Key>
+            <PropertyRef Name="IdPregunta" />
+          </Key>
+          <Property Name="IdPregunta" Type="int" Nullable="false" />
+          <Property Name="Orden" Type="decimal" Precision="5" Scale="3" Nullable="false" />
+          <Property Name="Fk_IdTema" Type="tinyint" Nullable="false" />
+          <Property Name="Fk_IdConcepto" Type="int" Nullable="false" />
+          <Property Name="Fk_IdDataType" Type="int" Nullable="false" />
+          <Property Name="EsDeterminante" Type="bit" Nullable="false" />
+          <Property Name="EdoInicial" Type="bit" Nullable="false" />
+          <Property Name="ReglaNegocio" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rel_ConceptoRespValor">
+          <Key>
+            <PropertyRef Name="IdConceptoRespValor" />
+          </Key>
+          <Property Name="IdConceptoRespValor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_IdInstitucion" Type="int" />
+          <Property Name="Fk_IdTema" Type="tinyint" Nullable="false" />
+          <Property Name="Fk_IdConcepto" Type="int" Nullable="false" />
+          <Property Name="Fk_IdRespuesta" Type="int" Nullable="false" />
+          <Property Name="NumOrden" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="EsDeterminante" Type="bit" Nullable="false" />
+          <Property Name="ValorRespuesta" Type="numeric" Precision="6" Scale="2" />
+          <Property Name="ValorMinimo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ValorMaximo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="150" />
+          <Property Name="EstatusRegistro" Type="bit" Nullable="false" />
+          <Property Name="Fk_IdUsuarioRegistro" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Respuesta">
+          <Key>
+            <PropertyRef Name="IdRespuesta" />
+          </Key>
+          <Property Name="IdRespuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescripcionRespuesta" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="100" />
+          <Property Name="EstatusRegistro" Type="bit" Nullable="false" />
+          <Property Name="Fk_IdUsuarioRegistro" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="SB_R_127">
+          <End Role="Respuesta" Type="Self.Respuesta" Multiplicity="1" />
+          <End Role="Rel_ConceptoRespValor" Type="Self.Rel_ConceptoRespValor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Respuesta">
+              <PropertyRef Name="IdRespuesta" />
+            </Principal>
+            <Dependent Role="Rel_ConceptoRespValor">
+              <PropertyRef Name="Fk_IdRespuesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SB_R_128">
+          <End Role="Cat_Tema" Type="Self.Cat_Tema" Multiplicity="1" />
+          <End Role="Rel_ConceptoRespValor" Type="Self.Rel_ConceptoRespValor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Tema">
+              <PropertyRef Name="IdTema" />
+            </Principal>
+            <Dependent Role="Rel_ConceptoRespValor">
+              <PropertyRef Name="Fk_IdTema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SB_R_84">
+          <End Role="Concepto" Type="Self.Concepto" Multiplicity="1" />
+          <End Role="Rel_ConceptoRespValor" Type="Self.Rel_ConceptoRespValor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concepto">
+              <PropertyRef Name="IdConcepto" />
+            </Principal>
+            <Dependent Role="Rel_ConceptoRespValor">
+              <PropertyRef Name="Fk_IdConcepto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SandBoxModelStoreContainer">
+          <EntitySet Name="Cat_DataTypes" EntityType="Self.Cat_DataTypes" Schema="SandBox" store:Type="Tables" />
+          <EntitySet Name="Cat_Tema" EntityType="Self.Cat_Tema" Schema="SandBox" store:Type="Tables" />
+          <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="SandBox" store:Type="Tables" />
+          <EntitySet Name="Cuestionarios" EntityType="Self.Cuestionarios" Schema="SandBox" store:Type="Tables" />
+          <EntitySet Name="Rel_ConceptoRespValor" EntityType="Self.Rel_ConceptoRespValor" Schema="SandBox" store:Type="Tables" />
+          <EntitySet Name="Respuesta" EntityType="Self.Respuesta" Schema="SandBox" store:Type="Tables" />
+          <AssociationSet Name="SB_R_127" Association="Self.SB_R_127">
+            <End Role="Respuesta" EntitySet="Respuesta" />
+            <End Role="Rel_ConceptoRespValor" EntitySet="Rel_ConceptoRespValor" />
+          </AssociationSet>
+          <AssociationSet Name="SB_R_128" Association="Self.SB_R_128">
+            <End Role="Cat_Tema" EntitySet="Cat_Tema" />
+            <End Role="Rel_ConceptoRespValor" EntitySet="Rel_ConceptoRespValor" />
+          </AssociationSet>
+          <AssociationSet Name="SB_R_84" Association="Self.SB_R_84">
+            <End Role="Concepto" EntitySet="Concepto" />
+            <End Role="Rel_ConceptoRespValor" EntitySet="Rel_ConceptoRespValor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SandBoxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cat_DataTypes">
+          <Key>
+            <PropertyRef Name="IdDataType" />
+          </Key>
+          <Property Name="IdDataType" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AtributoHTML" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cat_Tema">
+          <Key>
+            <PropertyRef Name="IdTema" />
+          </Key>
+          <Property Name="IdTema" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescripcionTema" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EstatusRegistro" Type="Boolean" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fk_IdUsuarioRegistro" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rel_ConceptoRespValor" Relationship="Self.SB_R_128" FromRole="Cat_Tema" ToRole="Rel_ConceptoRespValor" />
+        </EntityType>
+        <EntityType Name="Concepto">
+          <Key>
+            <PropertyRef Name="IdConcepto" />
+          </Key>
+          <Property Name="IdConcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescripcionConcepto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DescripcionAlternaConcepto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FundamentoLegal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="EstatusRegistro" Type="Boolean" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fk_IdUsuarioRegistro" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rel_ConceptoRespValor" Relationship="Self.SB_R_84" FromRole="Concepto" ToRole="Rel_ConceptoRespValor" />
+        </EntityType>
+        <EntityType Name="Cuestionarios">
+          <Key>
+            <PropertyRef Name="IdPregunta" />
+          </Key>
+          <Property Name="IdPregunta" Type="Int32" Nullable="false" />
+          <Property Name="Orden" Type="Decimal" Precision="5" Scale="3" Nullable="false" />
+          <Property Name="Fk_IdTema" Type="Byte" Nullable="false" />
+          <Property Name="Fk_IdConcepto" Type="Int32" Nullable="false" />
+          <Property Name="Fk_IdDataType" Type="Int32" Nullable="false" />
+          <Property Name="EsDeterminante" Type="Boolean" Nullable="false" />
+          <Property Name="EdoInicial" Type="Boolean" Nullable="false" />
+          <Property Name="ReglaNegocio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Rel_ConceptoRespValor">
+          <Key>
+            <PropertyRef Name="IdConceptoRespValor" />
+          </Key>
+          <Property Name="IdConceptoRespValor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_IdInstitucion" Type="Int32" />
+          <Property Name="Fk_IdTema" Type="Byte" Nullable="false" />
+          <Property Name="Fk_IdConcepto" Type="Int32" Nullable="false" />
+          <Property Name="Fk_IdRespuesta" Type="Int32" Nullable="false" />
+          <Property Name="NumOrden" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="EsDeterminante" Type="Boolean" Nullable="false" />
+          <Property Name="ValorRespuesta" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ValorMinimo" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ValorMaximo" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EstatusRegistro" Type="Boolean" Nullable="false" />
+          <Property Name="Fk_IdUsuarioRegistro" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Cat_Tema" Relationship="Self.SB_R_128" FromRole="Rel_ConceptoRespValor" ToRole="Cat_Tema" />
+          <NavigationProperty Name="Concepto" Relationship="Self.SB_R_84" FromRole="Rel_ConceptoRespValor" ToRole="Concepto" />
+          <NavigationProperty Name="Respuesta" Relationship="Self.SB_R_127" FromRole="Rel_ConceptoRespValor" ToRole="Respuesta" />
+        </EntityType>
+        <EntityType Name="Respuesta">
+          <Key>
+            <PropertyRef Name="IdRespuesta" />
+          </Key>
+          <Property Name="IdRespuesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescripcionRespuesta" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EstatusRegistro" Type="Boolean" Nullable="false" />
+          <Property Name="Fk_IdUsuarioRegistro" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Rel_ConceptoRespValor" Relationship="Self.SB_R_127" FromRole="Respuesta" ToRole="Rel_ConceptoRespValor" />
+        </EntityType>
+        <Association Name="SB_R_128">
+          <End Role="Cat_Tema" Type="Self.Cat_Tema" Multiplicity="1" />
+          <End Role="Rel_ConceptoRespValor" Type="Self.Rel_ConceptoRespValor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Tema">
+              <PropertyRef Name="IdTema" />
+            </Principal>
+            <Dependent Role="Rel_ConceptoRespValor">
+              <PropertyRef Name="Fk_IdTema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SB_R_84">
+          <End Role="Concepto" Type="Self.Concepto" Multiplicity="1" />
+          <End Role="Rel_ConceptoRespValor" Type="Self.Rel_ConceptoRespValor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concepto">
+              <PropertyRef Name="IdConcepto" />
+            </Principal>
+            <Dependent Role="Rel_ConceptoRespValor">
+              <PropertyRef Name="Fk_IdConcepto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SB_R_127">
+          <End Role="Respuesta" Type="Self.Respuesta" Multiplicity="1" />
+          <End Role="Rel_ConceptoRespValor" Type="Self.Rel_ConceptoRespValor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Respuesta">
+              <PropertyRef Name="IdRespuesta" />
+            </Principal>
+            <Dependent Role="Rel_ConceptoRespValor">
+              <PropertyRef Name="Fk_IdRespuesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SandBoxEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cat_DataTypes" EntityType="Self.Cat_DataTypes" />
+          <EntitySet Name="Cat_Tema" EntityType="Self.Cat_Tema" />
+          <EntitySet Name="Concepto" EntityType="Self.Concepto" />
+          <EntitySet Name="Cuestionarios" EntityType="Self.Cuestionarios" />
+          <EntitySet Name="Rel_ConceptoRespValor" EntityType="Self.Rel_ConceptoRespValor" />
+          <EntitySet Name="Respuesta" EntityType="Self.Respuesta" />
+          <AssociationSet Name="SB_R_128" Association="Self.SB_R_128">
+            <End Role="Cat_Tema" EntitySet="Cat_Tema" />
+            <End Role="Rel_ConceptoRespValor" EntitySet="Rel_ConceptoRespValor" />
+          </AssociationSet>
+          <AssociationSet Name="SB_R_84" Association="Self.SB_R_84">
+            <End Role="Concepto" EntitySet="Concepto" />
+            <End Role="Rel_ConceptoRespValor" EntitySet="Rel_ConceptoRespValor" />
+          </AssociationSet>
+          <AssociationSet Name="SB_R_127" Association="Self.SB_R_127">
+            <End Role="Respuesta" EntitySet="Respuesta" />
+            <End Role="Rel_ConceptoRespValor" EntitySet="Rel_ConceptoRespValor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SandBoxModelStoreContainer" CdmEntityContainer="SandBoxEntities">
+          <EntitySetMapping Name="Cat_DataTypes">
+            <EntityTypeMapping TypeName="SandBoxModel.Cat_DataTypes">
+              <MappingFragment StoreEntitySet="Cat_DataTypes">
+                <ScalarProperty Name="IdDataType" ColumnName="IdDataType" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="AtributoHTML" ColumnName="AtributoHTML" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Tema">
+            <EntityTypeMapping TypeName="SandBoxModel.Cat_Tema">
+              <MappingFragment StoreEntitySet="Cat_Tema">
+                <ScalarProperty Name="IdTema" ColumnName="IdTema" />
+                <ScalarProperty Name="DescripcionTema" ColumnName="DescripcionTema" />
+                <ScalarProperty Name="EstatusRegistro" ColumnName="EstatusRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Fk_IdUsuarioRegistro" ColumnName="Fk_IdUsuarioRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Concepto">
+            <EntityTypeMapping TypeName="SandBoxModel.Concepto">
+              <MappingFragment StoreEntitySet="Concepto">
+                <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+                <ScalarProperty Name="DescripcionConcepto" ColumnName="DescripcionConcepto" />
+                <ScalarProperty Name="DescripcionAlternaConcepto" ColumnName="DescripcionAlternaConcepto" />
+                <ScalarProperty Name="FundamentoLegal" ColumnName="FundamentoLegal" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="EstatusRegistro" ColumnName="EstatusRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Fk_IdUsuarioRegistro" ColumnName="Fk_IdUsuarioRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cuestionarios">
+            <EntityTypeMapping TypeName="SandBoxModel.Cuestionarios">
+              <MappingFragment StoreEntitySet="Cuestionarios">
+                <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Fk_IdTema" ColumnName="Fk_IdTema" />
+                <ScalarProperty Name="Fk_IdConcepto" ColumnName="Fk_IdConcepto" />
+                <ScalarProperty Name="Fk_IdDataType" ColumnName="Fk_IdDataType" />
+                <ScalarProperty Name="EsDeterminante" ColumnName="EsDeterminante" />
+                <ScalarProperty Name="EdoInicial" ColumnName="EdoInicial" />
+                <ScalarProperty Name="ReglaNegocio" ColumnName="ReglaNegocio" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rel_ConceptoRespValor">
+            <EntityTypeMapping TypeName="SandBoxModel.Rel_ConceptoRespValor">
+              <MappingFragment StoreEntitySet="Rel_ConceptoRespValor">
+                <ScalarProperty Name="IdConceptoRespValor" ColumnName="IdConceptoRespValor" />
+                <ScalarProperty Name="Fk_IdInstitucion" ColumnName="Fk_IdInstitucion" />
+                <ScalarProperty Name="Fk_IdTema" ColumnName="Fk_IdTema" />
+                <ScalarProperty Name="Fk_IdConcepto" ColumnName="Fk_IdConcepto" />
+                <ScalarProperty Name="Fk_IdRespuesta" ColumnName="Fk_IdRespuesta" />
+                <ScalarProperty Name="NumOrden" ColumnName="NumOrden" />
+                <ScalarProperty Name="EsDeterminante" ColumnName="EsDeterminante" />
+                <ScalarProperty Name="ValorRespuesta" ColumnName="ValorRespuesta" />
+                <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+                <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="EstatusRegistro" ColumnName="EstatusRegistro" />
+                <ScalarProperty Name="Fk_IdUsuarioRegistro" ColumnName="Fk_IdUsuarioRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Respuesta">
+            <EntityTypeMapping TypeName="SandBoxModel.Respuesta">
+              <MappingFragment StoreEntitySet="Respuesta">
+                <ScalarProperty Name="IdRespuesta" ColumnName="IdRespuesta" />
+                <ScalarProperty Name="DescripcionRespuesta" ColumnName="DescripcionRespuesta" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="EstatusRegistro" ColumnName="EstatusRegistro" />
+                <ScalarProperty Name="Fk_IdUsuarioRegistro" ColumnName="Fk_IdUsuarioRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

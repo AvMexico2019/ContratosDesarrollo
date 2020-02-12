@@ -1,0 +1,200 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INDAABIN.DI.CONTRATOS.AccesoDatos", "INDAABIN.DI.CONTRATOS.AccesoDatos\INDAABIN.DI.CONTRATOS.AccesoDatos.csproj", "{A9903F91-4AE3-4CB8-BF2C-8C24EE3984EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INDAABIN.DI.CONTRATOS.Negocio", "INDAABIN.DI.CONTRATOS.Negocio\INDAABIN.DI.CONTRATOS.Negocio.csproj", "{9E3BAD6E-ACD5-408B-82C6-43BEE7737BD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INDAABIN.DI.CONTRATOS.Aplicacion", "INDAABIN.DI.CONTRATOS.Aplicacion\INDAABIN.DI.CONTRATOS.Aplicacion.csproj", "{439A47E5-B144-4A79-8581-E2E97077B76A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INDAABIN.DI.CONTRATOS.ModeloNegocios", "INDAABIN.DI.CONTRATOS.ModeloNegocios\INDAABIN.DI.CONTRATOS.ModeloNegocios.csproj", "{B5A0A206-B979-4BA7-87C8-BA0304DD2312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INDAABIN.DI.CONTRATOS.Datos", "INDAABIN.DI.CONTRATOS.Datos\INDAABIN.DI.CONTRATOS.Datos.csproj", "{6B5668A7-8BFE-4A8A-9EA7-55A029005D55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GrafosDirigidosIteraccionEntreCapas", "GrafosDirigidosIteraccionEntreCapas", "{50A7E310-4A5B-4B4A-9898-E90450A29C23}"
+	ProjectSection(SolutionItems) = preProject
+		Arquitectura en Solucion.dgml = Arquitectura en Solucion.dgml
+		ClasesObjetos.dgml = ClasesObjetos.dgml
+		InmuebleArrto.dgml = InmuebleArrto.dgml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitacoraExcepcionAplicacion", "BitacoraExcepcionAplicacion\BitacoraExcepcionAplicacion.csproj", "{3AEA22EC-F165-42C0-9C1E-7D61637E9ACB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Información de control de cambios", "Información de control de cambios", "{9967D482-5BDF-4F55-A3C0-0084D012687B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modificación del Cuestionario dic 2019", "Modificación del Cuestionario dic 2019", "{6AF1A0DC-10EC-47DC-918C-AF5BF8218C3F}"
+	ProjectSection(SolutionItems) = preProject
+		ConfiguracionRespuestas\ConfiguracionRespuestas\Control de Cambios\2do Formato de Control de Cambios 16 octubre 2019.pdf = ConfiguracionRespuestas\ConfiguracionRespuestas\Control de Cambios\2do Formato de Control de Cambios 16 octubre 2019.pdf
+		ConfiguracionRespuestas\ConfiguracionRespuestas\Control de Cambios\Control d Cambio - 26 noviembre 2019.pdf = ConfiguracionRespuestas\ConfiguracionRespuestas\Control de Cambios\Control d Cambio - 26 noviembre 2019.pdf
+		ConfiguracionRespuestas\ConfiguracionRespuestas\Control de Cambios\Excel validaciones emision de opinion 2da paquete de entregables..xlsx = ConfiguracionRespuestas\ConfiguracionRespuestas\Control de Cambios\Excel validaciones emision de opinion 2da paquete de entregables..xlsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Información General", "Información General", "{EA8619C4-3B31-4EFC-B789-B11A28F3D6FA}"
+	ProjectSection(SolutionItems) = preProject
+		Información General\Convenio modificatorio perdido ticket 9284 .txt = Información General\Convenio modificatorio perdido ticket 9284 .txt
+		Información General\Programacion JS del cuestionario .txt = Información General\Programacion JS del cuestionario .txt
+		tmpcc.zip = tmpcc.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Control de Cambios", "Control de Cambios", "{49D4D90E-44E6-4AA2-9D16-EDB1D8FE3263}"
+	ProjectSection(SolutionItems) = preProject
+		Información General\Control de Cambios\2do Formato de Control de Cambios 16 octubre 2019.pdf = Información General\Control de Cambios\2do Formato de Control de Cambios 16 octubre 2019.pdf
+		Información General\Control de Cambios\Control d Cambio - 26 noviembre 2019.pdf = Información General\Control de Cambios\Control d Cambio - 26 noviembre 2019.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{37BFEC47-1A94-4499-8CEF-B2AC92C0DE67}"
+	ProjectSection(SolutionItems) = preProject
+		Información General\SQL\SQL InicializaSandBox.txt = Información General\SQL\SQL InicializaSandBox.txt
+		Información General\SQL\SQL spuCopiaSandBox2dbo.txt = Información General\SQL\SQL spuCopiaSandBox2dbo.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modificación de cuestionario", "Modificación de cuestionario", "{D1808D15-3E6D-4C44-9FFD-361B0EBA8AAA}"
+	ProjectSection(SolutionItems) = preProject
+		Información General\Control de Cambios\Modificación de cuestionario\2do Formato de Control de Cambios 16 octubre 2019.pdf = Información General\Control de Cambios\Modificación de cuestionario\2do Formato de Control de Cambios 16 octubre 2019.pdf
+		Información General\Control de Cambios\Modificación de cuestionario\Control d Cambio - 26 noviembre 2019.pdf = Información General\Control de Cambios\Modificación de cuestionario\Control d Cambio - 26 noviembre 2019.pdf
+		Información General\Control de Cambios\Modificación de cuestionario\Excel validaciones emision de opinion 2da paquete de entregables..xlsx = Información General\Control de Cambios\Modificación de cuestionario\Excel validaciones emision de opinion 2da paquete de entregables..xlsx
+		Información General\Control de Cambios\Modificación de cuestionario\SQL Nuevos Datos tabla concepto servidor de prueba inserts.txt = Información General\Control de Cambios\Modificación de cuestionario\SQL Nuevos Datos tabla concepto servidor de prueba inserts.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLs", "SQLs", "{215DEC93-1CE8-4DE1-B6ED-F7968BA8A8BE}"
+	ProjectSection(SolutionItems) = preProject
+		Información General\Control de Cambios\Modificación de cuestionario\SQLs\SQL Datos originales de la tabla Concepto.txt = Información General\Control de Cambios\Modificación de cuestionario\SQLs\SQL Datos originales de la tabla Concepto.txt
+		Información General\Control de Cambios\Modificación de cuestionario\SQLs\SQL Datos originales de la tabla Rel_ConceptoRespValor.txt = Información General\Control de Cambios\Modificación de cuestionario\SQLs\SQL Datos originales de la tabla Rel_ConceptoRespValor.txt
+		Información General\Control de Cambios\Modificación de cuestionario\SQLs\SQL Nuevos Datos de la tabla Concepto.txt = Información General\Control de Cambios\Modificación de cuestionario\SQLs\SQL Nuevos Datos de la tabla Concepto.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BigBrother", "BigBrother", "{042F2A0E-847D-49FD-BED7-D4E71DA957EA}"
+	ProjectSection(SolutionItems) = preProject
+		Información General\SQL\BigBrother\CrearLogConceptos.sql = Información General\SQL\BigBrother\CrearLogConceptos.sql
+		Información General\SQL\BigBrother\CrearLogRel_ConceptoRespValor.sql = Información General\SQL\BigBrother\CrearLogRel_ConceptoRespValor.sql
+		Información General\SQL\BigBrother\GetINFOChanged.sql = Información General\SQL\BigBrother\GetINFOChanged.sql
+		Información General\SQL\BigBrother\Habilita Notificaciones.sql = Información General\SQL\BigBrother\Habilita Notificaciones.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBoxDB", "SandBoxDB\SandBoxDB.csproj", "{F20DD53E-2A2D-4204-9461-8A19D7465D72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1_borrame", "ConsoleApp1_borrame\ConsoleApp1_borrame.csproj", "{413D5195-907B-4BCC-9DE5-3ED5B87D7197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfiguracionCuestionario", "ConfiguracionCuestionario\ConfiguracionRespuestas\ConfiguracionCuestionario.csproj", "{C68933D6-0B7E-4388-8005-85CD3DFF022D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INDAABIN.DI.CONTRATOS.AccesoDatosNuevo", "INDAABIN.DI.CONTRATOS.AccesoDatosNuevo\INDAABIN.DI.CONTRATOS.AccesoDatosNuevo.csproj", "{352E4873-9826-433A-9D83-24BEEC50EC95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INDAABIN.DI.CONTRATOS.ModeloNegociosNuevo", "INDAABIN.DI.CONTRATOS.ModeloNegociosNuevo\INDAABIN.DI.CONTRATOS.ModeloNegociosNuevo.csproj", "{0C9EACE8-24BE-462D-8EDE-281D34AC3EFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Estado del sistema", "Estado del sistema", "{38A4E324-D151-4916-A575-45281E8C0E97}"
+	ProjectSection(SolutionItems) = preProject
+		Documento de entrega Contratos de Arrendamiento[241812] 16 oct 2019.DOCX = Documento de entrega Contratos de Arrendamiento[241812] 16 oct 2019.DOCX
+		PRESENTACION CONTRATOS DE ARRENDAMIENTO.pptx = PRESENTACION CONTRATOS DE ARRENDAMIENTO.pptx
+		Reseña del Proyecto de Contratos.txt = Reseña del Proyecto de Contratos.txt
+		Servidores Base de Datos.docx = Servidores Base de Datos.docx
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramacionPruebaCuestionario", "JavaScriptExperiment\WebFormsApplication1\ProgramacionPruebaCuestionario.csproj", "{D85A19CB-BAA1-4DC5-98F7-77D16DACBB3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9903F91-4AE3-4CB8-BF2C-8C24EE3984EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9903F91-4AE3-4CB8-BF2C-8C24EE3984EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9903F91-4AE3-4CB8-BF2C-8C24EE3984EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9903F91-4AE3-4CB8-BF2C-8C24EE3984EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3BAD6E-ACD5-408B-82C6-43BEE7737BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3BAD6E-ACD5-408B-82C6-43BEE7737BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3BAD6E-ACD5-408B-82C6-43BEE7737BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3BAD6E-ACD5-408B-82C6-43BEE7737BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{439A47E5-B144-4A79-8581-E2E97077B76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{439A47E5-B144-4A79-8581-E2E97077B76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{439A47E5-B144-4A79-8581-E2E97077B76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{439A47E5-B144-4A79-8581-E2E97077B76A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5A0A206-B979-4BA7-87C8-BA0304DD2312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A0A206-B979-4BA7-87C8-BA0304DD2312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5A0A206-B979-4BA7-87C8-BA0304DD2312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A0A206-B979-4BA7-87C8-BA0304DD2312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B5668A7-8BFE-4A8A-9EA7-55A029005D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B5668A7-8BFE-4A8A-9EA7-55A029005D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B5668A7-8BFE-4A8A-9EA7-55A029005D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B5668A7-8BFE-4A8A-9EA7-55A029005D55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AEA22EC-F165-42C0-9C1E-7D61637E9ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AEA22EC-F165-42C0-9C1E-7D61637E9ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AEA22EC-F165-42C0-9C1E-7D61637E9ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AEA22EC-F165-42C0-9C1E-7D61637E9ACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F20DD53E-2A2D-4204-9461-8A19D7465D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20DD53E-2A2D-4204-9461-8A19D7465D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20DD53E-2A2D-4204-9461-8A19D7465D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20DD53E-2A2D-4204-9461-8A19D7465D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{413D5195-907B-4BCC-9DE5-3ED5B87D7197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{413D5195-907B-4BCC-9DE5-3ED5B87D7197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{413D5195-907B-4BCC-9DE5-3ED5B87D7197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{413D5195-907B-4BCC-9DE5-3ED5B87D7197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C68933D6-0B7E-4388-8005-85CD3DFF022D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C68933D6-0B7E-4388-8005-85CD3DFF022D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C68933D6-0B7E-4388-8005-85CD3DFF022D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C68933D6-0B7E-4388-8005-85CD3DFF022D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352E4873-9826-433A-9D83-24BEEC50EC95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352E4873-9826-433A-9D83-24BEEC50EC95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352E4873-9826-433A-9D83-24BEEC50EC95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352E4873-9826-433A-9D83-24BEEC50EC95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C9EACE8-24BE-462D-8EDE-281D34AC3EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C9EACE8-24BE-462D-8EDE-281D34AC3EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C9EACE8-24BE-462D-8EDE-281D34AC3EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C9EACE8-24BE-462D-8EDE-281D34AC3EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D85A19CB-BAA1-4DC5-98F7-77D16DACBB3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D85A19CB-BAA1-4DC5-98F7-77D16DACBB3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D85A19CB-BAA1-4DC5-98F7-77D16DACBB3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D85A19CB-BAA1-4DC5-98F7-77D16DACBB3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6AF1A0DC-10EC-47DC-918C-AF5BF8218C3F} = {9967D482-5BDF-4F55-A3C0-0084D012687B}
+		{49D4D90E-44E6-4AA2-9D16-EDB1D8FE3263} = {EA8619C4-3B31-4EFC-B789-B11A28F3D6FA}
+		{37BFEC47-1A94-4499-8CEF-B2AC92C0DE67} = {EA8619C4-3B31-4EFC-B789-B11A28F3D6FA}
+		{D1808D15-3E6D-4C44-9FFD-361B0EBA8AAA} = {49D4D90E-44E6-4AA2-9D16-EDB1D8FE3263}
+		{215DEC93-1CE8-4DE1-B6ED-F7968BA8A8BE} = {D1808D15-3E6D-4C44-9FFD-361B0EBA8AAA}
+		{042F2A0E-847D-49FD-BED7-D4E71DA957EA} = {37BFEC47-1A94-4499-8CEF-B2AC92C0DE67}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B68EC7D1-071B-4CC1-A747-D57F3255331A}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://indaabin-tfs:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = INDAABIN.DI.CONTRATOS.AccesoDatos\\INDAABIN.DI.CONTRATOS.AccesoDatos.csproj
+		SccProjectName0 = INDAABIN.DI.CONTRATOS.AccesoDatos
+		SccAuxPath0 = http://indaabin-tfs:8080/tfs/defaultcollection
+		SccLocalPath0 = INDAABIN.DI.CONTRATOS.AccesoDatos
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = INDAABIN.DI.CONTRATOS.Negocio\\INDAABIN.DI.CONTRATOS.Negocio.csproj
+		SccProjectName1 = INDAABIN.DI.CONTRATOS.Negocio
+		SccAuxPath1 = http://indaabin-tfs:8080/tfs/defaultcollection
+		SccLocalPath1 = INDAABIN.DI.CONTRATOS.Negocio
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = INDAABIN.DI.CONTRATOS.ModeloNegocios\\INDAABIN.DI.CONTRATOS.ModeloNegocios.csproj
+		SccProjectName2 = INDAABIN.DI.CONTRATOS.ModeloNegocios
+		SccAuxPath2 = http://indaabin-tfs:8080/tfs/defaultcollection
+		SccLocalPath2 = INDAABIN.DI.CONTRATOS.ModeloNegocios
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = INDAABIN.DI.CONTRATOS.Datos\\INDAABIN.DI.CONTRATOS.Datos.csproj
+		SccProjectName3 = INDAABIN.DI.CONTRATOS.Datos
+		SccAuxPath3 = http://indaabin-tfs:8080/tfs/defaultcollection
+		SccLocalPath3 = INDAABIN.DI.CONTRATOS.Datos
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = BitacoraExcepcionAplicacion\\BitacoraExcepcionAplicacion.csproj
+		SccProjectName4 = BitacoraExcepcionAplicacion
+		SccAuxPath4 = http://indaabin-tfs:8080/tfs/defaultcollection
+		SccLocalPath4 = BitacoraExcepcionAplicacion
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName5 = INDAABIN.DI.CONTRATOS.Aplicacion\\INDAABIN.DI.CONTRATOS.Aplicacion.csproj
+		SccProjectName5 = INDAABIN.DI.CONTRATOS.Aplicacion
+		SccAuxPath5 = http://indaabin-tfs:8080/tfs/defaultcollection
+		SccLocalPath5 = INDAABIN.DI.CONTRATOS.Aplicacion
+		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

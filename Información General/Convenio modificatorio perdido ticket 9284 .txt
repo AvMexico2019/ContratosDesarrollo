@@ -1,0 +1,17 @@
+Descripción general del cambio:
+Por instrucciones de la Mtra. Karla Rojas Trangay, Directora de Planeación Inmobiliaria,
+se solicita la verificación en el registro del convenio modificatorio del folio de contrato 45297,
+suscrito por la Comisión Nacional Forestal del ejercicio fiscal 2019,
+ya que el Promovente al tratar de realizar este paso no le aparece la información del folio a modificar.
+
+
+Sin más por el momento quedo en espera de su amable respuesta.
+
+
+Saludos.
+
+El Store procedure [dbo].[spuObtenerInmueblesConvenioModificatorio]
+tiene un error
+usa esta tablaque esta vacia [dbo].[Convenio_Modificatorio]
+En inmueble y el contrato estan registrados, no se pueden encontrar por el defecto en este SP.
+Var si es posible hacer una consulta aparte para recuperar los datos correctos.

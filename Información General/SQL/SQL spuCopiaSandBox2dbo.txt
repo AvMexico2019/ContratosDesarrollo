@@ -1,0 +1,80 @@
+﻿USE [ArrendamientoInmueble]
+GO
+
+/****** Object:  StoredProcedure [SandBox].[InicializaSandBox]    Script Date: 20/12/2019 03:17:03 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Desa21-Raymundo Peralta
+-- Create date: 13 dic 2019
+-- Description:	Copia las tablas de la base de datos de SandBox a dbo despuess de que la tablas fueron modificadas
+--              Se llama dese la aplicación de escritorio ConfiguraciónRespuestas
+--              El SandBox debe estar creado y el owner debe ser UserDesaAplica
+--              Es necesario tener cuidado con los constraints para que funcione la configuración.
+-- =============================================
+CREATE PROCEDURE [SandBox].[CopiaSandBox2dbo]
+AS
+BEGIN
+IF EXISTS (
+	SELECT  schema_name
+		FROM    information_schema.schemata
+		WHERE   schema_name = 'SandBox' )
+begin 
+	begin try
+		begin tran
+			SET ANSI_NULLS ON;
+			SET QUOTED_IDENTIFIER ON;
+
+            IF (EXISTS (SELECT *
+					FROM INFORMATION_SCHEMA.TABLES
+					WHERE TABLE_SCHEMA = 'SandBox'
+					AND TABLE_NAME = 'Rel_ConceptoRespValor'))
+			BEGIN
+                alter table [dbo].[Rel_ConceptoRespValor] nocheck constraint all
+                alter table [dbo].[RespuestaConcepto] nocheck constraint all
+				delete from [dbo].[Rel_ConceptoRespValor];
+                alter table [dbo].[Rel_ConceptoRespValor] check constraint all
+                alter table [dbo].[RespuestaConcepto] check constraint all
+			END;
+
+			IF (EXISTS (SELECT *
+					FROM INFORMATION_SCHEMA.TABLES
+					WHERE TABLE_SCHEMA = 'SandBox'
+					AND TABLE_NAME = 'Concepto'))
+			BEGIN
+                alter table [dbo].[Concepto] nocheck constraint all
+				delete from [dbo].[Concepto];
+                alter table [dbo].[Concepto] check constraint all
+			END;
+
+			set IDENTITY_INSERT ArrendamientoInmueble.dbo.Concepto ON
+			insert into [dbo].[Concepto] (IdConcepto, DescripcionConcepto,DescripcionAlternaConcepto,
+			FundamentoLegal,Observaciones, EstatusRegistro,FechaRegistro,Fk_IdUsuarioRegistro)
+			select IdConcepto, DescripcionConcepto,DescripcionAlternaConcepto,
+			FundamentoLegal,Observaciones, EstatusRegistro,FechaRegistro,Fk_IdUsuarioRegistro from [SandBox].[Concepto]
+			set IDENTITY_INSERT ArrendamientoInmueble.dbo.Concepto OFF
+
+			set IDENTITY_INSERT ArrendamientoInmueble.dbo.Rel_ConceptoRespValor ON;
+			insert into [dbo].[Rel_ConceptoRespValor] (
+				IdConceptoRespValor, Fk_IdInstitucion, Fk_IdTema, Fk_IdConcepto, Fk_IdRespuesta, NumOrden,
+				EsDeterminante, ValorRespuesta, ValorMinimo, ValorMaximo, Comentario, EstatusRegistro, Fk_IdUsuarioRegistro, FechaRegistro)
+			select IdConceptoRespValor, Fk_IdInstitucion, Fk_IdTema, Fk_IdConcepto, Fk_IdRespuesta, NumOrden,
+				EsDeterminante, ValorRespuesta, ValorMinimo, ValorMaximo, Comentario, EstatusRegistro, Fk_IdUsuarioRegistro, FechaRegistro from [SandBox].[Rel_ConceptoRespValor];
+			set IDENTITY_INSERT ArrendamientoInmueble.dbo.Rel_ConceptoRespValor OFF;
+
+		commit
+		select 'OK'
+	end try
+	begin catch
+		rollback tran
+		select 'NOK'
+	end catch	
+end			
+END
+
+GO
+

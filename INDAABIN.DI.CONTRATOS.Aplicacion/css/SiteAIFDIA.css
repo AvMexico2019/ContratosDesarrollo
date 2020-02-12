@@ -1,0 +1,54 @@
+﻿ /*/////////////////////JulioCS/////*/
+input.btn{
+   color:#36567A;
+   font-family:'verdana',helvetica,sans-serif;
+   font-size:9px;
+   font-weight:bold;
+   background-color:#eeeeee;
+   border:1px solid #36567A;
+   	margin-bottom: 7px;
+	}
+
+#centrado{
+margin: 0px auto; /* aquí está el truco */
+background: #ccc;
+color: #900;
+}
+
+ /*////////////////GRID****/
+.mGrid {   
+   
+    font-family: Tahoma;
+	font-size:12pt;
+	font-style: normal; 
+	font-weight: normal; 
+	color: #013869; 
+	text-align: left;
+	text-transform:none;
+    margin-left: 0px;
+}  
+.mGrid td {   
+    padding: 2px;   
+    border: solid 1px #c1c1c1;   
+    color: #696969;   /* color de letra gris oscuro */
+}  
+.mGrid th {   
+    padding: 4px 2px;   
+    color: #fff;   
+    background: #808080 url(grd_head.png) repeat-x top;   /* columna de encabezado color: gris*/
+    border-left: solid 1px #525252;   
+    font-size: 0.9em;   
+}  
+.mGrid .alt { background: #fcfcfc url(grd_alt.png) repeat-x top; }  
+.mGrid .pgr { background: #424242 url(grd_pgr.png) repeat-x top; }  
+.mGrid .pgr table { margin: 5px 0; }  
+.mGrid .pgr td {   
+    border-width: 0;   
+    padding: 0 6px;   
+    border-left: solid 1px #666;   
+    font-weight: bold;   
+    color: #fff;   
+    line-height: 12px;   
+ }     
+.mGrid .pgr a { color: #666; text-decoration: none; }  
+.mGrid .pgr a:hover { color: #000; text-decoration: none; } 
